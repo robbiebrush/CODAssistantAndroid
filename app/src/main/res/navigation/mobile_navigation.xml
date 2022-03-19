@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.codassistant.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_matches"
+        android:name="com.example.codassistant.RecyclerViews.MatchesRecycler.MatchesFragment"
+        android:label="@string/menu_my_matches"
+        tools:layout="@layout/fragment_matches" />
+
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.example.codassistant.MatchesSubFragments.StatsFragment"
+        android:label="@string/menu_my_stats"
+        tools:layout="@layout/fragment_stats" />
+
+    <fragment
+        android:id="@+id/nav_rosters"
+        android:name="com.example.codassistant.ViewPagers.RosterPager.RostersFragment"
+        android:label="@string/menu_pro_rosters"
+        tools:layout="@layout/fragment_rosters" />
+</navigation>
