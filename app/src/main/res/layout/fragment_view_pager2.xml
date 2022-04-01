@@ -20,6 +20,15 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/webURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            tools:src="@drawable/ic_baseline_insert_link_24" />
+
         <TextView
             android:id="@+id/teamName"
             android:layout_width="wrap_content"
