@@ -1,5 +1,7 @@
 package com.example.codassistant.ViewPagers.RosterPager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.codassistant.R;
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -74,10 +77,66 @@ public class ViewPager2Fragment extends Fragment {
         ImageView picView = (ImageView) view.findViewById(R.id.teamPic);
         TextView nameTextView = (TextView) view.findViewById(R.id.teamName);
         TextView rosterTextView = (TextView) view.findViewById(R.id.teamRoster);
+        ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
 
         Picasso.get().load(pic).into(picView);
         nameTextView.setText(name);
         rosterTextView.setText(roster);
+
+        urlView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri webpage;
+                switch(name) {
+                    case "Atlanta FaZe":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Atlanta_FaZe");
+                        break;
+                    case "Boston Breach":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Boston_Breach");
+                        break;
+                    case "Florida Mutineers":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Florida_Mutineers");
+                        break;
+                    case "London Royal Ravens":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/London_Royal_Ravens");
+                        break;
+                    case "Los Angeles Guerillas":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Los_Angeles_Guerrillas");
+                        break;
+                    case "Los Angeles Thieves":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Los_Angeles_Thieves");
+                        break;
+                    case "Minnesota RØKKR":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Minnesota_R%C3%98KKR");
+                        break;
+                    case "New York Subliners":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/New_York_Subliners");
+                        break;
+                    case "OpTic Texas":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/OpTic_Texas");
+                        break;
+                    case "Paris Legion":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Paris_Legion");
+                        break;
+                    case "Seattle Surge":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Seattle_Surge");
+                        break;
+                    case "Toronto Ultra":
+                        webpage = Uri.parse("https://cod-esports.fandom.com/wiki/Toronto_Ultra");
+                        break;
+                    default:
+                        webpage = Uri.parse("https://callofduty.fandom.com/wiki/Call_of_Duty:_Vanguard");
+                        break;
+                }
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                }else{
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         return view;
     }

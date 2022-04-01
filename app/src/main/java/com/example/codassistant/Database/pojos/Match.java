@@ -15,7 +15,6 @@ public class Match implements Parcelable {
     private double elims;
     private double deaths;
     private int obj;
-    private long lastUpdated;
 
     public Match(String map, String mode, int teamScore, int oppScore, int elims, int deaths, int obj) {
         this.map = map;
@@ -25,7 +24,6 @@ public class Match implements Parcelable {
         this.elims = elims;
         this.deaths = deaths;
         this.obj = obj;
-        this.lastUpdated = System.currentTimeMillis() - 900000;
     }
 
     public Match(int id, String map, String mode, int teamScore, int oppScore, int elims, int deaths, int obj) {
@@ -37,7 +35,6 @@ public class Match implements Parcelable {
         this.elims = elims;
         this.deaths = deaths;
         this.obj = obj;
-        this.lastUpdated = System.currentTimeMillis() - 900000;
     }
 
     public Match() {
