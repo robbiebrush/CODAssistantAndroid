@@ -1,14 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Database.CreateUpdateFragment">
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:columnCount="2"
+        android:useDefaultMargins="true"
+        tools:context=".Database.CreateUpdateFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/mapLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/mapInput"
+            android:textSize="18sp"
+            android:text="Map:"
+            android:paddingTop="10dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:id="@+id/mapInput">
+
+            <RadioButton
+                android:id="@+id/tuscanRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuscan" />
+            <RadioButton
+                android:id="@+id/bocageRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bocage" />
+            <RadioButton
+                android:id="@+id/berlinRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berlin" />
+            <RadioButton
+                android:id="@+id/dsRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desert Siege" />
+            <RadioButton
+                android:id="@+id/gavutuRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gavutu" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/modeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/modeInput"
+            android:paddingTop="10dp"
+            android:textSize="18sp"
+            android:text="Game Mode:" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:id="@+id/modeInput">
+
+            <RadioButton
+                android:id="@+id/hpRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hardpoint" />
+            <RadioButton
+                android:id="@+id/sndRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search and Destroy" />
+            <RadioButton
+                android:id="@+id/cntrlRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/teamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/teamPoints"
+            android:text="Team Points:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/teamPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:minHeight="48dp"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/oppPointsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/oppPoints"
+            android:text="Opponent Points:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/oppPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:ems="10"
+            android:minHeight="48dp"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/elimsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/elimAmt"
+            android:text="Eliminations:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/elimAmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:ems="10"
+            android:minHeight="48dp"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/deathLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/deathAmt"
+            android:text="Deaths:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/deathAmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:ems="10"
+            android:minHeight="48dp"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/objLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/deathAmt"
+            android:text="Objectives:"
+            android:textSize="18dp"/>
+
+        <EditText
+            android:id="@+id/objAmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:ems="10"
+            android:minHeight="48dp"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:text="Submit Match" />
+    </GridLayout>
+</ScrollView>

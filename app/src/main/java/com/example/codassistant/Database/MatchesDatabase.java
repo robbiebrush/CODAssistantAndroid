@@ -22,6 +22,8 @@ public class MatchesDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_MAP = "map";
     public static final String COLUMN_MODE = "mode";
+    public static final String COLUMN_TEAM_SCORE = "team_score";
+    public static final String COLUMN_OPP_SCORE = "opp_score";
     public static final String COLUMN_ELIMS = "elims";
     public static final String COLUMN_DEATHS = "deaths";
     public static final String COLUMN_OBJ = "obj";
@@ -34,6 +36,7 @@ public class MatchesDatabase extends SQLiteOpenHelper {
     public static final String CREATE_MATCHES_TABLE = "CREATE TABLE " +
             TABLE_MATCHES + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
             COLUMN_MAP + " TEXT, " + COLUMN_MODE + " TEXT, "  +
+            COLUMN_TEAM_SCORE + " INT, " + COLUMN_OPP_SCORE + " INT, " +
             COLUMN_ELIMS + " INT, " + COLUMN_DEATHS + " INT, " +
             COLUMN_OBJ + " INT)";
 
@@ -56,6 +59,8 @@ public class MatchesDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MAP, match.getMap());
         values.put(COLUMN_MODE, match.getMode());
+        values.put(COLUMN_TEAM_SCORE, match.getTeamScore());
+        values.put(COLUMN_OPP_SCORE, match.getOppScore());
         values.put(COLUMN_ELIMS, match.getElims());
         values.put(COLUMN_DEATHS, match.getDeaths());
         values.put(COLUMN_OBJ, match.getObj());
@@ -79,7 +84,9 @@ public class MatchesDatabase extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getInt(3),
                     cursor.getInt(4),
-                    cursor.getInt(5)
+                    cursor.getInt(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7)
             );
         }
         db.close();
@@ -90,7 +97,7 @@ public class MatchesDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Match> matches = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MATCHES, null);
-        Log.d("SQL", "Dynasties Table: " + cursor.getCount() + " inserts");
+        Log.d("SQL", "Matches Table: " + cursor.getCount() + " inserts");
         while(cursor.moveToNext()){
             matches.add(new Match(
                     cursor.getInt(0),
@@ -98,7 +105,9 @@ public class MatchesDatabase extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getInt(3),
                     cursor.getInt(4),
-                    cursor.getInt(5))
+                    cursor.getInt(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7))
             );
         }
         db.close();
@@ -110,6 +119,8 @@ public class MatchesDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MAP, match.getMap());
         values.put(COLUMN_MODE, match.getMode());
+        values.put(COLUMN_TEAM_SCORE, match.getTeamScore());
+        values.put(COLUMN_OPP_SCORE, match.getOppScore());
         values.put(COLUMN_ELIMS, match.getElims());
         values.put(COLUMN_DEATHS, match.getDeaths());
         values.put(COLUMN_OBJ, match.getObj());
@@ -117,10 +128,10 @@ public class MatchesDatabase extends SQLiteOpenHelper {
                 new String[]{String.valueOf(match.getId())});
     }
 
-    public void deleteDynasty(int dynasty){
+    public void deleteMatch(int match){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_MATCHES, COLUMN_ID +  "=?",
-                new String[]{String.valueOf(dynasty)});
+                new String[]{String.valueOf(match)});
         db.close();
     }
 }
