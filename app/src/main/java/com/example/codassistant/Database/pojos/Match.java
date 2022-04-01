@@ -69,14 +69,20 @@ public class Match implements Parcelable {
 
     public double getKdRatio() {
         DecimalFormat df = new DecimalFormat("#.#");
-        return Double.parseDouble(df.format(this.elims / this.deaths));
+        if (this.deaths == 0) {
+            return Double.parseDouble(df.format(this.elims));
+        } else {
+            return Double.parseDouble(df.format(this.elims / this.deaths));
+        }
     }
 
     public String getOutcome() {
         if (this.teamScore > this.oppScore) {
             return "W";
-        } else {
+        } else if (this.teamScore < this.oppScore){
             return "L";
+        } else {
+            return "TIE";
         }
     }
 
