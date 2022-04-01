@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     Bundle extra = new Bundle();
                     extra.putInt(CreateUpdateFragment.ACTION_TYPE,
                             CreateUpdateFragment.CREATE);
+                    //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    //ft.replace(R.id.nav_create_update, ).addToBackStack("match").commit();
                     navController.navigate(R.id.nav_create_update, extra);
                 }
             }

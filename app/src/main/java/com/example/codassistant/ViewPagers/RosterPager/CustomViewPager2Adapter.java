@@ -39,7 +39,7 @@ public class CustomViewPager2Adapter extends FragmentStateAdapter {
 
     @NonNull
     public Fragment createFragment(int position) {
-        if(System.currentTimeMillis() - lastPulled > 7889400000L) {
+        if(System.currentTimeMillis() - lastPulled > 7889400000L) {//3 months
             lastPulled = System.currentTimeMillis();
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONArray>() {
