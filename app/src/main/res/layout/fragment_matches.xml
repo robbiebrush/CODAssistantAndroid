@@ -5,16 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".RecyclerViews.MatchesRecycler.MatchesFragment"
     android:orientation="vertical">
-    <!--recycler view for cod legends-->
+    <Button
+        android:id="@+id/statsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MY STATS" />
+
+    <!--recycler view for ranked matches-->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/matchesRecyclerView"
         android:layout_weight="1">
     </androidx.recyclerview.widget.RecyclerView>
-    <Button
-        android:id="@+id/statsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MY STATS" />
 </LinearLayout>

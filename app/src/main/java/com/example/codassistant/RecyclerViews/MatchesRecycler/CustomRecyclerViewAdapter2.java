@@ -55,7 +55,7 @@ public class CustomRecyclerViewAdapter2 extends RecyclerView.Adapter<CustomRecyc
         if (match.getMode(). equals("Search and Destroy")) {
             holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " plants");
         } else if (match.getMode().equals("Hardpoint")) {
-            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " points");
+            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " sec");
         } else if (match.getMode().equals("Control")) {
             holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " obj elims");
         }
