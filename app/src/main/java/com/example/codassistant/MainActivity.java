@@ -33,12 +33,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
+        DrawerLayout drawer = binding.drawerLayout;
+        navigationView = binding.navView;
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_matches, R.id.nav_stats, R.id.nav_rosters)
+                .setOpenableLayout(drawer)
+                .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
         binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_add_24);
@@ -56,15 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_matches, R.id.nav_stats, R.id.nav_rosters, R.id.nav_create_update)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {

@@ -15,7 +15,11 @@
         android:id="@+id/nav_matches"
         android:name="com.example.codassistant.RecyclerViews.MatchesRecycler.MatchesFragment"
         android:label="@string/menu_my_matches"
-        tools:layout="@layout/fragment_matches" />
+        tools:layout="@layout/fragment_matches">
+        <action
+            android:id="@+id/action_nav_matches_to_nav_create_update"
+            app:destination="@+id/nav_create_update"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_stats"
