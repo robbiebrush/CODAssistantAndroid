@@ -3,12 +3,18 @@ package com.example.codassistant.RecyclerViews.CreditsRecycler;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.codassistant.Database.pojos.Credit;
 import com.example.codassistant.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +66,16 @@ public class CreditsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credits, container, false);
+        View view = inflater.inflate(R.layout.fragment_credits, container, false);
+        ArrayList<Credit> credits = new ArrayList<>();
+
+        credits.add(new Credit("COD Assistant Creators", "Robbie Brush, Evan"));
+        credits.add(new Credit("CDL Roster API Data", "https://pandascore.co/stats"));
+
+        RecyclerView recyclerView = view.findViewById(R.id.creditsRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(new CustomRecyclerViewAdapter2(credits));
+        return view;
     }
 }

@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
                     Bundle extra = new Bundle();
                     extra.putInt(CreateUpdateFragment.ACTION_TYPE,
                             CreateUpdateFragment.CREATE);
-                    //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    //ft.replace(R.id.nav_create_update, ).addToBackStack("match").commit();
                     navController.navigate(R.id.nav_create_update, extra);
                 }
             }
@@ -85,6 +83,19 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+                //navController.navigate(R.id.nav_settings);
+                break;
+            case R.id.credits:
+                navController.navigate(R.id.nav_credits);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -62,7 +62,7 @@ public class CreateUpdateFragment extends Fragment {
                 match = getArguments().getParcelable(MATCH);
                 submit.setText("EDIT MATCH");
                 if(match != null){
-                    if (match.getMap() == "Tuscan") {
+                    if (match.getMap().equals("Tuscan")) {
                         tuscan.setChecked(true);
                     } else if (match.getMap().equals("Bocage")) {
                         bocage.setChecked(true);
@@ -97,23 +97,23 @@ public class CreateUpdateFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //Populate the location object with the values on the screen
-                    if (tuscan.isChecked() == true) {
+                    if (tuscan.isChecked()) {
                         match.setMap("Tuscan");
-                    } else if (bocage.isChecked() == true) {
+                    } else if (bocage.isChecked()) {
                         match.setMap("Bocage");
-                    } else if (gav.isChecked() == true) {
+                    } else if (gav.isChecked()) {
                         match.setMap("Gavutu");
-                    } else if (ds.isChecked() == true) {
+                    } else if (ds.isChecked()) {
                         match.setMap("Desert Siege");
-                    } else if (berlin.isChecked() == true) {
+                    } else if (berlin.isChecked()) {
                         match.setMap("Berlin");
                     }
 
-                    if (hp.isChecked() == true) {
+                    if (hp.isChecked()) {
                         match.setMode("Hardpoint");
-                    } else if (snd.isChecked() == true) {
+                    } else if (snd.isChecked()) {
                         match.setMode("Search and Destroy");
-                    } else if (cntrl.isChecked() == true) {
+                    } else if (cntrl.isChecked()) {
                         match.setMode("Control");
                     }
 

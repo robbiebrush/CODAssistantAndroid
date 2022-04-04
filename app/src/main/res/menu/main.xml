@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_credits"
+        android:id="@+id/credits"
         android:orderInCategory="100"
         android:title="@string/action_credits"
         android:icon="@drawable/ic_baseline_perm_contact_calendar_24"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always"
