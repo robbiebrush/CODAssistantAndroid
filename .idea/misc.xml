@@ -11,8 +11,10 @@
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/credits_recycler_row.xml" value="0.18" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_create_update.xml" value="0.25" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_credits.xml" value="0.1" />
+        <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_matches.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_rosters.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_stats.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/fragment_view_pager2.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/matches_recycler.xml" value="0.17761557177615572" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/nav_header_main.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/menu/activity_main_drawer.xml" value="0.2921875" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/menu/main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/xml/root_preferences.xml" value="0.1" />
       </map>
     </option>
   </component>

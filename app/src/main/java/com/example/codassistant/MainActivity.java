@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                //navController.navigate(R.id.nav_settings);
+                navController.navigate(R.id.nav_settings);
                 break;
             case R.id.credits:
                 navController.navigate(R.id.nav_credits);
