@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable/icon_background.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/layout/nav_header_main.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/menu/activity_main_drawer.xml" value="0.2921875" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/menu/main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/xml/root_preferences.xml" value="0.1" />
       </map>
     </option>
