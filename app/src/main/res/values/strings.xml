@@ -1,33 +1,66 @@
 <resources>
     <string name="app_name">CODAssistant</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="action_credits">Credits</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_my_matches">My Matches</string>
     <string name="menu_my_stats">My Stats</string>
-    <string name="menu_pro_rosters">Pro Rosters</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_pro_rosters">CDL Rosters</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title">COD Assistant</string>
     <string name="subtitle">Ranked Stat Tracking | Latest CDL Info</string>
+
+    <!--Match Strings -->
+    <string name="map">Map:</string>
+    <string name="mode">Game Mode:</string>
+    <string name="tuscan" translatable="false">Tuscan</string>
+    <string name="bocage" translatable="false">Bocage</string>
+    <string name="ds" translatable="false">Desert Siege</string>
+    <string name="gav" translatable="false">Gavutu</string>
+    <string name="berlin" translatable="false">Berlin</string>
+    <string name="hp" translatable="false">Hardpoint</string>
+    <string name="snd" translatable="false">Search and Destroy</string>
+    <string name="ctl" translatable="false">Control</string>
+    <string name="teamPoints">Team Points:</string>
+    <string name="oppPoints">Opponent Points:</string>
+    <string name="elims">Eliminations:</string>
+    <string name="deaths">Deaths:</string>
+    <string name="obj">Objectives:</string>
+    <string name="addMatch">Add Match</string>
+    <string name="updateMatch">Update Match</string>
+    <string name="matchInstructs">Add, edit and delete Ranked Vanguard matches.</string>
+    <string name="secs">sec</string>
+    <string name="plants">plants</string>
+
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="prefs_header">Preferences</string>
+    <string name="filter_header">Filter Stats</string>
+    <string name="language">Language</string>
+    <string name="gamemode">Game Mode</string>
+    <string name="fontSize">Font Size</string>
+
+    <!-- View pager Strings -->
+    <string name="cdlRosters">CDL Pro Rosters</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="signature_title" translatable="false">Your signature</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
+
+    <!-- Credits Strings -->
+    <string name="creators">COD Assistant Creators</string>
+    <string name="apiData">CDL Roster API Data</string>
+    <string name="codVangImage">COD: Vanguard Image</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
 </resources>

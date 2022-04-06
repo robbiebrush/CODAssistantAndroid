@@ -16,7 +16,7 @@
         android:paddingLeft="4dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Add, edit and delete Ranked Vanguard matches." />
+        android:text="@string/matchInstructs" />
 
     <!--recycler view for ranked matches-->
     <androidx.recyclerview.widget.RecyclerView

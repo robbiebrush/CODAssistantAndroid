@@ -1,6 +1,12 @@
 package com.example.codassistant;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -20,8 +26,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceManager;
 
 import com.example.codassistant.databinding.ActivityMainBinding;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +39,45 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     NavigationView navigationView;
     NavController navController;
+    private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //sets language
+        /*
+        if (sharedPreferences.getString("lang", "eng").equals("eng")) {
+            setAppLocale("en");
+            Log.d("help","made it eng");
+            recreate();
+        } else if (sharedPreferences.getString("lang" ,"eng").equals("esp")) {
+            setAppLocale("es");
+            Log.d("help","made it esp");
+            recreate();
+        }
+        */
+        prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (sharedPreferences.getString("lang", "eng").equals("eng")) {
+                    setAppLocale("en");
+                    Log.d("help","made it eng");
+                    recreate();
+                } else if (sharedPreferences.getString("lang" ,"eng").equals("esp")) {
+                    setAppLocale("es");
+                    Log.d("help","made it esp");
+                    recreate();
+                }
+
+                if (key.equals("font")) {
+
+                }
+                if (key.equals("filter")) {
+
+                }
+            }
+        };
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -76,6 +121,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setAppLocale(String code) {
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration config = res.getConfiguration();
+        Locale locale = new Locale(code);
+        Locale.setDefault(locale);
+        config.setLocale(locale);
+        res.updateConfiguration(config, dm);
+    }
+
+    private void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     @Override

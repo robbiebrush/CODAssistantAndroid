@@ -69,9 +69,13 @@ public class CreditsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_credits, container, false);
         ArrayList<Credit> credits = new ArrayList<>();
 
-        credits.add(new Credit("COD Assistant Creators", "Robbie Brush, Evan"));
-        credits.add(new Credit("CDL Roster API Data", "https://pandascore.co/stats"));
-        credits.add(new Credit("COD: Vanguard Image", "https://styles.redditmedia.com/t5_3sgon3/styles/communityIcon_m4hjnmn9nuw71.png?width=256&s=eec96e0cb80b1899e6088cea3e31293a424727a2"));
+        String creators = getString(R.string.creators);
+        String apiData = getString(R.string.apiData);
+        String image = getString(R.string.codVangImage);
+
+        credits.add(new Credit(creators, "Robbie Brush, Evan"));
+        credits.add(new Credit(apiData, "https://pandascore.co/stats"));
+        credits.add(new Credit(image, "https://styles.redditmedia.com/t5_3sgon3/styles/communityIcon_m4hjnmn9nuw71.png?width=256&s=eec96e0cb80b1899e6088cea3e31293a424727a2"));
 
         RecyclerView recyclerView = view.findViewById(R.id.creditsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),

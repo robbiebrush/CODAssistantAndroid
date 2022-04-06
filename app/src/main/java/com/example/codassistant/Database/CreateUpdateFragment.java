@@ -60,7 +60,8 @@ public class CreateUpdateFragment extends Fragment {
             //if the user want to update a match
             if(getArguments().getInt(ACTION_TYPE) == UPDATE){
                 match = getArguments().getParcelable(MATCH);
-                submit.setText("EDIT MATCH");
+                String btnText = getString(R.string.updateMatch);
+                submit.setText(btnText);
                 if(match != null){
                     if (match.getMap().equals("Tuscan")) {
                         tuscan.setChecked(true);
@@ -91,7 +92,8 @@ public class CreateUpdateFragment extends Fragment {
             }
             else{
                 match = new Match();
-                submit.setText("ADD MATCH");
+                String btnText = getString(R.string.addMatch);
+                submit.setText(btnText);
             }
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -14,7 +14,6 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="Credit For"
         android:layout_weight="1"/>
     <TextView
         android:id="@+id/creditTo"
@@ -23,7 +22,6 @@
         android:padding="8dp"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:text="Credit To"
         android:layout_weight="1"/>
 
 </LinearLayout>

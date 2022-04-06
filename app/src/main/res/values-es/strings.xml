@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CODAsistente</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_credits">Créditos</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_my_matches">Mis Partidos</string>
+    <string name="menu_my_stats">Mis Estadísticas</string>
+    <string name="menu_pro_rosters">CDL Listas</string>
+    <string name="title">COD Asistente</string>
+    <string name="subtitle">Seguimiento de las Estadísticas Clasificadas | Última Información de CDL</string>
+    <string name="map">Mapa:</string>
+    <string name="mode">Modo de Juego:</string>
+    <string name="teamPoints">Puntos del Equipo:</string>
+    <string name="oppPoints">Puntos del Oponente:</string>
+    <string name="elims">Eliminaciones:</string>
+    <string name="deaths">Muertes:</string>
+    <string name="obj">Objetivos:</string>
+    <string name="matchInstructs">Añadir, editar y eliminar partidas clasificadas de Vanguard.</string>
+    <string name="prefs_header">Preferencias</string>
+    <string name="filter_header">Filtro de Estadísticas</string>
+    <string name="language">Idioma</string>
+    <string name="gamemode">Modo de Juego</string>
+    <string name="secs">seg</string>
+    <string name="plants">plantas</string>
+    <string name="cdlRosters">Listas Profesionales de CDL</string>
+    <string name="creators">Creadores de COD Asistente</string>
+    <string name="apiData">Datos API de la Lista CDL</string>
+    <string name="codVangImage">Imagen de COD: Vanguard</string>
+    <string name="addMatch">Añadir Partido</string>
+    <string name="updateMatch">Actualizar Partido</string>
+    <string name="fontSize">Tamaño de Letra</string>
+</resources>

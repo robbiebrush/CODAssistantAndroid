@@ -52,10 +52,12 @@ public class CustomRecyclerViewAdapter2 extends RecyclerView.Adapter<CustomRecyc
         holder.mode.setText(match.getMode());
         holder.outcome.setText(match.getOutcome() + " " + match.getTeamScore() + "-" + match.getOppScore());
 
+        String plants = context.getString(R.string.plants);
+        String sec = context.getString(R.string.secs);
         if (match.getMode(). equals("Search and Destroy")) {
-            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " plants");
+            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " " + plants);
         } else if (match.getMode().equals("Hardpoint")) {
-            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " sec");
+            holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " " + sec);
         } else if (match.getMode().equals("Control")) {
             holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " obj elims");
         }
