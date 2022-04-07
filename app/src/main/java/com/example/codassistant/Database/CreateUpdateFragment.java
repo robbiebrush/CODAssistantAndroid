@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.codassistant.Database.pojos.Match;
 import com.example.codassistant.MainActivity;
@@ -54,6 +55,65 @@ public class CreateUpdateFragment extends Fragment {
         EditText elims = view.findViewById(R.id.elimAmt);
         EditText deaths = view.findViewById(R.id.deathAmt);
         EditText obj = view.findViewById(R.id.objAmt);
+
+        TextView teamScoreLabel = view.findViewById(R.id.teamPointsLabel);
+        TextView oppScoreLabel = view.findViewById(R.id.oppPointsLabel);
+        TextView mapLabel = view.findViewById(R.id.mapLabel);
+        TextView modeLabel = view.findViewById(R.id.modeLabel);
+        TextView elimLabel = view.findViewById(R.id.elimsLabel);
+        TextView deathsLabel = view.findViewById(R.id.deathLabel);
+        TextView objLabel = view.findViewById(R.id.objLabel);
+
+        if (MainActivity.font == 0) {
+            teamScore.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            oppScore.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            elims.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            deaths.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            obj.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+
+            tuscan.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            bocage.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            gav.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            berlin.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            ds.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+
+            hp.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            snd.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            cntrl.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+
+            mapLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            modeLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            teamScoreLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            oppScoreLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            elimLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            deathsLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+            objLabel.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+        } else if (MainActivity.font == 1) {
+            teamScore.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            oppScore.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            elims.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            deaths.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            obj.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+
+            tuscan.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            bocage.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            gav.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            berlin.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            ds.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+
+            hp.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            snd.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            cntrl.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+
+            mapLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            modeLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            teamScoreLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            oppScoreLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            elimLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            deathsLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+            objLabel.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+        }
+
         Button submit = view.findViewById(R.id.submitButton);
         //if we have a bundle
         if(getArguments() != null){

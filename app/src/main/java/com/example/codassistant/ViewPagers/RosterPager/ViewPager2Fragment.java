@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,7 @@ public class ViewPager2Fragment extends Fragment {
         ImageView picView = (ImageView) view.findViewById(R.id.teamPic);
         TextView nameTextView = (TextView) view.findViewById(R.id.teamName);
         TextView rosterTextView = (TextView) view.findViewById(R.id.teamRoster);
+        rosterTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
 
         Picasso.get().load(pic).into(picView);

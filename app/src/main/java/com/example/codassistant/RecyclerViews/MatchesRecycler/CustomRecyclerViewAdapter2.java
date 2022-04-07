@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.codassistant.Database.CreateUpdateFragment;
 import com.example.codassistant.Database.MatchesDatabase;
 import com.example.codassistant.Database.pojos.Match;
+import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 
 import java.util.ArrayList;
@@ -132,6 +133,18 @@ public class CustomRecyclerViewAdapter2 extends RecyclerView.Adapter<CustomRecyc
             this.stats = itemView.findViewById(R.id.stats);
             this.editButt = itemView.findViewById(R.id.editImg);
             this.deleteButt = itemView.findViewById(R.id.deleteImg);
+
+            if (MainActivity.font == 0) {
+                this.map.setTextSize(context.getResources().getDimension(R.dimen.title_text) / context.getResources().getDisplayMetrics().density);
+                this.mode.setTextSize(context.getResources().getDimension(R.dimen.subtitle_text) / context.getResources().getDisplayMetrics().density);
+                this.outcome.setTextSize(context.getResources().getDimension(R.dimen.subtitle_text) / context.getResources().getDisplayMetrics().density);
+                this.stats.setTextSize(context.getResources().getDimension(R.dimen.body_text) / context.getResources().getDisplayMetrics().density);
+            } else if (MainActivity.font == 1) {
+                this.map.setTextSize(context.getResources().getDimension(R.dimen.title_text_large) / context.getResources().getDisplayMetrics().density);
+                this.mode.setTextSize(context.getResources().getDimension(R.dimen.subtitle_text_large) / context.getResources().getDisplayMetrics().density);
+                this.outcome.setTextSize(context.getResources().getDimension(R.dimen.subtitle_text_large) / context.getResources().getDisplayMetrics().density);
+                this.stats.setTextSize(context.getResources().getDimension(R.dimen.body_text_large) / context.getResources().getDisplayMetrics().density);
+            }
         }
     }
 }

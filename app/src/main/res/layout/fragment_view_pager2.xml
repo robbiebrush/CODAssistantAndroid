@@ -38,7 +38,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="26sp"
+            android:textSize="@dimen/title_text"
             android:textStyle="bold"/>
 
         <TextView
@@ -48,6 +48,6 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="22sp"/>
+            android:textSize="@dimen/subtitle_text"/>
     </LinearLayout>
 </ScrollView>

@@ -1,5 +1,6 @@
 package com.example.codassistant;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -33,13 +34,18 @@ import com.example.codassistant.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     NavigationView navigationView;
     NavController navController;
-    private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
+    //Font flag
+    public static int font = 0;
+
+    //Stat filter flag
+    public static int filter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +62,6 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
         */
-        prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (sharedPreferences.getString("lang", "eng").equals("eng")) {
-                    setAppLocale("en");
-                    Log.d("help","made it eng");
-                    recreate();
-                } else if (sharedPreferences.getString("lang" ,"eng").equals("esp")) {
-                    setAppLocale("es");
-                    Log.d("help","made it esp");
-                    recreate();
-                }
-
-                if (key.equals("font")) {
-
-                }
-                if (key.equals("filter")) {
-
-                }
-            }
-        };
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -133,12 +118,6 @@ public class MainActivity extends AppCompatActivity {
         res.updateConfiguration(config, dm);
     }
 
-    private void restartActivity() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -164,5 +143,52 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals("lang")) {
+            if (sharedPreferences.getString("lang", "eng").equals("eng")) {
+                setAppLocale("en");
+                Log.d("help", "made it eng");
+            } else if (sharedPreferences.getString("lang", "eng").equals("esp")) {
+                setAppLocale("es");
+                Log.d("help", "made it esp");
+            }
+        }
+
+        if (key.equals("font")) {
+            if (sharedPreferences.getString("font", "default").equals("default")) {
+                font = 0;
+            } else if (sharedPreferences.getString("font", "default").equals("large")) {
+                font = 1;
+            }
+        }
+        if (key.equals("filter")) {
+            if (sharedPreferences.getString("filter", "overall").equals("overall")) {
+                filter = 0;
+            } else if (sharedPreferences.getString("filter", "overall").equals("hp")) {
+                filter = 1;
+                Log.d("help","made it hp filter");
+            } else if (sharedPreferences.getString("filter", "overall").equals("snd")) {
+                filter = 2;
+            } else if (sharedPreferences.getString("filter", "overall").equals("ctl")) {
+                filter = 3;
+            }
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        SharedPreferences pref = this.getPreferences(Context.MODE_PRIVATE);
+        pref.registerOnSharedPreferenceChangeListener(this);
+        super.onStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        SharedPreferences pref = this.getPreferences(Context.MODE_PRIVATE);
+        pref.unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
     }
 }

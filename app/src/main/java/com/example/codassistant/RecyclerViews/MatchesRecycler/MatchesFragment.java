@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.codassistant.Database.MatchesDatabase;
+import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 
 /**
@@ -67,6 +70,13 @@ public class MatchesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_matches, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.matchesRecyclerView);
         MatchesDatabase db = new MatchesDatabase(getContext());
+
+        TextView instructs = view.findViewById(R.id.instructText);
+        if (MainActivity.font == 0) {
+            instructs.setTextSize(getResources().getDimension(R.dimen.subtitle_text) / getResources().getDisplayMetrics().density);
+        } else if (MainActivity.font == 1) {
+            instructs.setTextSize(getResources().getDimension(R.dimen.subtitle_text_large) / getResources().getDisplayMetrics().density);
+        }
 
         CustomRecyclerViewAdapter2 adapter = new CustomRecyclerViewAdapter2(db.getAllMatches(), getContext());
         recyclerView.setAdapter(adapter);

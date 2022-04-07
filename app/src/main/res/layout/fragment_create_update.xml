@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/mapInput"
-            android:textSize="18sp"
+            android:textSize="@dimen/body_text"
             android:text="@string/map"
             android:paddingTop="10dp"/>
 
@@ -33,26 +33,31 @@
                 android:id="@+id/tuscanRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/tuscan" />
             <RadioButton
                 android:id="@+id/bocageRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/bocage" />
             <RadioButton
                 android:id="@+id/berlinRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/berlin" />
             <RadioButton
                 android:id="@+id/dsRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/ds" />
             <RadioButton
                 android:id="@+id/gavutuRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/gav" />
         </RadioGroup>
 
@@ -62,7 +67,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/modeInput"
             android:paddingTop="10dp"
-            android:textSize="18sp"
+            android:textSize="@dimen/body_text"
             android:text="@string/mode" />
 
         <RadioGroup
@@ -76,26 +81,29 @@
                 android:id="@+id/hpRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/hp" />
             <RadioButton
                 android:id="@+id/sndRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/snd" />
             <RadioButton
                 android:id="@+id/cntrlRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body_text"
                 android:text="@string/ctl" />
         </RadioGroup>
 
         <TextView
-            android:id="@+id/teamScore"
+            android:id="@+id/teamPointsLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:labelFor="@id/teamPoints"
             android:text="@string/teamPoints"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/body_text"/>
 
         <EditText
             android:id="@+id/teamPoints"
@@ -104,6 +112,7 @@
             android:layout_gravity="fill_horizontal"
             android:minHeight="48dp"
             android:ems="10"
+            android:textSize="@dimen/body_text"
             android:inputType="number" />
 
         <TextView
@@ -112,7 +121,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/oppPoints"
             android:text="@string/oppPoints"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/body_text"/>
 
         <EditText
             android:id="@+id/oppPoints"
@@ -121,6 +130,7 @@
             android:layout_gravity="fill_horizontal"
             android:ems="10"
             android:minHeight="48dp"
+            android:textSize="@dimen/body_text"
             android:inputType="number" />
 
         <TextView
@@ -129,7 +139,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/elimAmt"
             android:text="@string/elims"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/body_text"/>
 
         <EditText
             android:id="@+id/elimAmt"
@@ -137,6 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
             android:ems="10"
+            android:textSize="@dimen/body_text"
             android:minHeight="48dp"
             android:inputType="number" />
 
@@ -146,7 +157,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/deathAmt"
             android:text="@string/deaths"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/body_text"/>
 
         <EditText
             android:id="@+id/deathAmt"
@@ -154,6 +165,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
             android:ems="10"
+            android:textSize="@dimen/body_text"
             android:minHeight="48dp"
             android:inputType="number" />
 
@@ -163,7 +175,7 @@
             android:layout_height="wrap_content"
             android:labelFor="@id/deathAmt"
             android:text="@string/obj"
-            android:textSize="18dp"/>
+            android:textSize="@dimen/body_text"/>
 
         <EditText
             android:id="@+id/objAmt"
@@ -171,6 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
             android:ems="10"
+            android:textSize="@dimen/body_text"
             android:minHeight="48dp"
             android:inputType="number" />
 
@@ -179,6 +192,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
+            android:textSize="@dimen/subtitle_text"
             android:text="@string/addMatch" />
     </GridLayout>
 </ScrollView>
