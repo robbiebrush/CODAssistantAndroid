@@ -28,6 +28,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.ListPreference;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 
 import com.example.codassistant.databinding.ActivityMainBinding;
@@ -46,22 +47,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     //Stat filter flag
     public static int filter = 0;
 
+    //Lang flag for decimal rounding
+    public static int lang = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //sets language
-        /*
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        //language set test
         if (sharedPreferences.getString("lang", "eng").equals("eng")) {
             setAppLocale("en");
-            Log.d("help","made it eng");
-            recreate();
+            lang = 0;
         } else if (sharedPreferences.getString("lang" ,"eng").equals("esp")) {
             setAppLocale("es");
-            Log.d("help","made it esp");
-            recreate();
+            lang = 1;
         }
-        */
+
+        //font set test
+        if (sharedPreferences.getString("font", "default").equals("default")) {
+            font = 0;
+        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
+            font = 1;
+        }
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

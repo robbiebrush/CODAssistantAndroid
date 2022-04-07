@@ -1,10 +1,15 @@
 package com.example.codassistant.Database.pojos;
 
+import android.icu.util.ULocale;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import com.example.codassistant.MainActivity;
+
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Match implements Parcelable {
     private int id;
@@ -64,12 +69,12 @@ public class Match implements Parcelable {
         }
     };
 
-    public double getKdRatio() {
-        DecimalFormat df = new DecimalFormat("#.#");
+    public String getKdRatio() {
+        DecimalFormat df = new DecimalFormat("#.##");
         if (this.deaths == 0) {
-            return Double.parseDouble(df.format(this.elims));
+            return df.format(this.elims);
         } else {
-            return Double.parseDouble(df.format(this.elims / this.deaths));
+            return df.format(this.elims / this.deaths);
         }
     }
 
