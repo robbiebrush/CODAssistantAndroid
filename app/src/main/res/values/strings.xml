@@ -34,4 +34,15 @@
     <!-- Home Page -->
     <string name="home_title">COD Assistant</string>
     <string name="home_desc">A mobile Call of Duty assistant application to track ranked statistics and centralize all Call of Duty League information such as team information, event details and more.</string>
+    <string name="home_matches">COD Assistant allows you to do all of the following when dealing with matches.</string>
+    <string name="home_create">Create\nmatches</string>
+    <string name="home_edit">Edit\nmatches</string>
+    <string name="home_delete">Delete\nmatches</string>
+
+    <!-- Home Page Image Content Description -->
+    <string name="home_app_icon">COD Assistant Application Icon</string>
+    <string name="home_divider">Content Divider</string>
+    <string name="home_create_matches">Create Match Icon</string>
+    <string name="home_edit_matches">Edit Match Icon</string>
+    <string name="home_delete_matches">Delete Match Icon</string>
 </resources>
