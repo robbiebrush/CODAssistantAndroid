@@ -38,6 +38,8 @@
     <string name="home_create">Create\nmatches</string>
     <string name="home_edit">Edit\nmatches</string>
     <string name="home_delete">Delete\nmatches</string>
+    <string name="home_statsTitle">Statistics</string>
+    <string name="home_statsDesc">Go through all matches and show match statistics such as average kills, deaths, plants, common maps, common game modes and more.</string>
 
     <!-- Home Page Image Content Description -->
     <string name="home_app_icon">COD Assistant Application Icon</string>
