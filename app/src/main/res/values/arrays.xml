@@ -12,8 +12,8 @@
 
     <!-- Font Size Preference -->
     <string-array name="fsize_entries">
-        <item>Default<!--@string/defaultVal--></item>
-        <item>Large<!--@string/largeVal--></item>
+        <item>@string/defaultVal</item>
+        <item>@string/largeVal</item>
     </string-array>
 
     <string-array name="fsize_values">
@@ -23,7 +23,7 @@
 
     <!-- Stat Filter Setting -->
     <string-array name="filter_entries">
-        <item>Overall<!--@string/overall--></item>
+        <item>@string/overall</item>
         <item>Hardpoint</item>
         <item>Search and Destroy</item>
         <item>Control</item>
