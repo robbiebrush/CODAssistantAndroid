@@ -1,12 +1,18 @@
 package com.example.codassistant;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,57 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        Button eventButt1 = view.findViewById(R.id.calButt1);
+        Button eventButt2 = view.findViewById(R.id.calButt2);
+        Button eventButt3 = view.findViewById(R.id.calButt3);
+
+        eventButt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent4))
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1654131600)
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1654520400);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        eventButt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent5))
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1658365200)
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1658710800);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        eventButt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent6))
+                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1660870800)
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1661216400);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        return view;
     }
 }

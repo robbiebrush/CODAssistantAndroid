@@ -30,4 +30,25 @@
     <string name="addMatch">Añadir Partido</string>
     <string name="updateMatch">Actualizar Partido</string>
     <string name="fontSize">Tamaño de Letra</string>
+    <string name="home_statsTitle">Estadísticas</string>
+    <string name="home_eventsTitle">Eventos</string>
+    <string name="home_event1">Kickoff Classic (Jan. 31- Feb. 2) - GANADOR: Toronto Ultra</string>
+    <string name="home_event2">OpTic Major 1 (Mar. 6- Mar. 6) - GANADOR: OpTic Texas</string>
+    <string name="home_event3">RØKKR Major 2 (Mar. 31- April 3) - GANADOR: Los Angeles Guerillas</string>
+    <string name="home_event4">Ultra Major 3 (June 2 - June 5) - GANADOR: TBD</string>
+    <string name="home_event5">Subliners Major 4 (July 21 - July 24) - GANADOR: TBD</string>
+    <string name="home_event6">COD: Vanguard Champs (Aug. 19 - Aug. 22) - GANADOR: TBD</string>
+    <string name="tbd">Por Determinar</string>
+    <string name="home_create">Crear\\npartido</string>
+    <string name="home_edit">Editar\\npartido</string>
+    <string name="home_delete">Eliminar\\npartido</string>
+    <string name="home_app_icon">Icono de COD Asistente</string>
+    <string name="home_divider">Divisor de Contenido</string>
+    <string name="home_create_matches">Icono de Crear Partido</string>
+    <string name="home_edit_matches">Icono de Editar Partido</string>
+    <string name="home_delete_matches">Icono de Eliminar Partido</string>
+    <string name="home_buttText">" Guardar Evento"</string>
+    <string name="home_statsDesc">Revisa todas las partidas y muestra las estadísticas de las mismas, como la media de muertes, las plantas, los mapas comunes, los modos de juego comunes y mucho más.</string>
+    <string name="home_matches">El Asistente COD le permite hacer todo lo siguiente cuando se trata de partidos.</string>
+    <string name="home_desc">Una aplicación móvil del asistente de Call of Duty para seguir las estadísticas de clasificación y centralizar toda la información de la liga de Call of Duty, como la información del equipo, los detalles del evento y mucho más.</string>
 </resources>
