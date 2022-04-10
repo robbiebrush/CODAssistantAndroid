@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/A1ZHU/Desktop/CODAssistant/CODAssistant/app/src/main/res/drawable/home_divider.xml" value="0.3828125" />
+        <entry key="..\:/Users/A1ZHU/Desktop/CODAssistant/CODAssistant/app/src/main/res/layout/credits_recycler_row.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/A1ZHU/Desktop/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_credits.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/A1ZHU/Desktop/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/CODAssistant/CODAssistant/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_create_update.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_credits.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_rosters.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_stats.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/A1ZHU/Desktop/MAD Sem 4/CODAssistant/CODAssistant/app/src/main/res/layout/fragment_view_pager2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/rctbr/OneDrive/Desktop/Winter2022/Android3/FinalProject/CODAssistant/app/src/main/res/drawable/icon_background.xml" value="0.1" />
@@ -37,7 +48,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="0.36666666666666664" />
       </ProjectState>
     </option>
   </component>

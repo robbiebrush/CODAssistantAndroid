@@ -6,4 +6,6 @@
     <color name="orange_200">#ff751a</color>
     <color name="orange_500">#e65c00</color>
     <color name="orange_700">#b34700</color>
+
+    <color name="matches_color">#707070</color>
 </resources>

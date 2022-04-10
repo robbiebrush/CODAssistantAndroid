@@ -18,7 +18,7 @@
 
     <!--Match Strings -->
     <string name="map">Map:</string>
-    <string name="mode">Game Mode:</string>
+    <string name="mode">Game\nMode:</string>
     <string name="tuscan" translatable="false">Tuscan</string>
     <string name="bocage" translatable="false">Bocage</string>
     <string name="ds" translatable="false">Desert Siege</string>
@@ -27,8 +27,8 @@
     <string name="hp" translatable="false">Hardpoint</string>
     <string name="snd" translatable="false">Search and Destroy</string>
     <string name="ctl" translatable="false">Control</string>
-    <string name="teamPoints">Team Points:</string>
-    <string name="oppPoints">Opponent Points:</string>
+    <string name="teamPoints">Team\nPoints:</string>
+    <string name="oppPoints">Opponent\nPoints:</string>
     <string name="elims">Eliminations:</string>
     <string name="deaths">Deaths:</string>
     <string name="obj">Objectives:</string>
@@ -66,4 +66,33 @@
     <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+
+    <!-- Home Page -->
+    <string name="home_desc">A mobile Call of Duty assistant application to track ranked statistics and centralize all Call of Duty League information such as team information, event details and more.</string>
+    <string name="home_matches">COD Assistant allows you to do all of the following when dealing with matches.</string>
+    <string name="home_create">Create\nmatches</string>
+    <string name="home_edit">Edit\nmatches</string>
+    <string name="home_delete">Delete\nmatches</string>
+    <string name="home_statsTitle">Statistics</string>
+    <string name="home_statsDesc">Go through all matches and show match statistics such as average kills, deaths, plants, common maps, common game modes and more.</string>
+    <string name="home_eventsTitle">Events</string>
+    <string name="home_event1">Kickoff Classic (Jan. 31- Feb. 2) - WINNER: Toronto Ultra</string>
+    <string name="home_event2">OpTic Major 1 (Mar. 6- Mar. 6) - WINNER: OpTic Texas</string>
+    <string name="home_event3">RØKKR Major 2 (Mar. 31- April 3) - WINNER: Los Angeles Guerillas</string>
+    <string name="home_event4">Ultra Major 3 (June 2 - June 5) - WINNER: TBD</string>
+    <string name="home_event5">Subliners Major 4 (July 21 - July 24) - WINNER: TBD</string>
+    <string name="home_event6">COD: Vanguard Champs (Aug. 19 - Aug. 22) - WINNER: TBD</string>
+
+    <string name="intentInsertEvent4" translatable="false">Ultra Major 3</string>
+    <string name="intentInsertEvent5" translatable="false">Subliners Major 4</string>
+    <string name="intentInsertEvent6" translatable="false">COD: Vanguard Champs</string>
+    <string name="tbd">TBD</string>
+
+    <!-- Home Page Image Content Description -->
+    <string name="home_app_icon">COD Assistant Application Icon</string>
+    <string name="home_divider">Content Divider</string>
+    <string name="home_create_matches">Create Match Icon</string>
+    <string name="home_edit_matches">Edit Match Icon</string>
+    <string name="home_delete_matches">Delete Match Icon</string>
+    <string name="home_buttText">Save Event</string>
 </resources>
