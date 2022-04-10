@@ -18,7 +18,7 @@
 
     <!--Match Strings -->
     <string name="map">Map:</string>
-    <string name="mode">Game Mode:</string>
+    <string name="mode">Game\nMode:</string>
     <string name="tuscan" translatable="false">Tuscan</string>
     <string name="bocage" translatable="false">Bocage</string>
     <string name="ds" translatable="false">Desert Siege</string>
@@ -27,8 +27,8 @@
     <string name="hp" translatable="false">Hardpoint</string>
     <string name="snd" translatable="false">Search and Destroy</string>
     <string name="ctl" translatable="false">Control</string>
-    <string name="teamPoints">Team Points:</string>
-    <string name="oppPoints">Opponent Points:</string>
+    <string name="teamPoints">Team\nPoints:</string>
+    <string name="oppPoints">Opponent\nPoints:</string>
     <string name="elims">Eliminations:</string>
     <string name="deaths">Deaths:</string>
     <string name="obj">Objectives:</string>

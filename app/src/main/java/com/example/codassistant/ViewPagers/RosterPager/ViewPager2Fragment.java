@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
@@ -78,7 +79,15 @@ public class ViewPager2Fragment extends Fragment {
         ImageView picView = (ImageView) view.findViewById(R.id.teamPic);
         TextView nameTextView = (TextView) view.findViewById(R.id.teamName);
         TextView rosterTextView = (TextView) view.findViewById(R.id.teamRoster);
-        rosterTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+
+        if (MainActivity.font == 0) {
+            nameTextView.setTextSize(getResources().getDimension(R.dimen.subtitle_text) / getResources().getDisplayMetrics().density);
+            rosterTextView.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
+        } else if (MainActivity.font == 1) {
+            nameTextView.setTextSize(getResources().getDimension(R.dimen.subtitle_text_large) / getResources().getDisplayMetrics().density);
+            rosterTextView.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
+        }
+
         ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
 
         Picasso.get().load(pic).into(picView);

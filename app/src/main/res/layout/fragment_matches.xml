@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RecyclerViews.MatchesRecycler.MatchesFragment"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/instructText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/subtitle_text"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:paddingLeft="4dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="@string/matchInstructs" />
-
-    <!--recycler view for ranked matches-->
-    <androidx.recyclerview.widget.RecyclerView
+    android:layout_height="wrap_content">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/matchesRecyclerView"
-        android:layout_weight="1">
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        tools:context=".RecyclerViews.MatchesRecycler.MatchesFragment"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/instructText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/subtitle_text"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:paddingLeft="4dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/matchInstructs" />
+
+        <!--recycler view for ranked matches-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/matchesRecyclerView"
+            android:layout_weight="1">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</ScrollView>

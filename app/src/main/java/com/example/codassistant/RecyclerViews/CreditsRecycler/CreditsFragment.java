@@ -72,10 +72,12 @@ public class CreditsFragment extends Fragment {
         String creators = getString(R.string.creators);
         String apiData = getString(R.string.apiData);
         String image = getString(R.string.codVangImage);
+        String events = getString(R.string.home_eventsTitle);
 
         credits.add(new Credit(creators, "Robbie Brush, Evan"));
         credits.add(new Credit(apiData, "https://pandascore.co/stats"));
         credits.add(new Credit(image, "https://styles.redditmedia.com/t5_3sgon3/styles/communityIcon_m4hjnmn9nuw71.png?width=256&s=eec96e0cb80b1899e6088cea3e31293a424727a2"));
+        credits.add(new Credit(events, "https://dotesports.com/call-of-duty/news/heres-the-2022-call-of-duty-league-season-schedule"));
 
         RecyclerView recyclerView = view.findViewById(R.id.creditsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),

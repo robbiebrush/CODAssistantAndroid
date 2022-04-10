@@ -10,9 +10,9 @@
     <string name="title">COD Asistente</string>
     <string name="subtitle">Seguimiento de las Estadísticas Clasificadas | Última Información de CDL</string>
     <string name="map">Mapa:</string>
-    <string name="mode">Modo de Juego:</string>
-    <string name="teamPoints">Puntos del Equipo:</string>
-    <string name="oppPoints">Puntos del Oponente:</string>
+    <string name="mode">Modo\nde Juego:</string>
+    <string name="teamPoints">Puntos\ndel Equipo:</string>
+    <string name="oppPoints">Puntos\ndel Oponente:</string>
     <string name="elims">Eliminaciones:</string>
     <string name="deaths">Muertes:</string>
     <string name="obj">Objetivos:</string>
