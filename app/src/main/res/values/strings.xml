@@ -44,6 +44,9 @@
     <string name="language">Language</string>
     <string name="gamemode">Game Mode</string>
     <string name="fontSize">Font Size</string>
+    <string name="defaultVal">Default</string>
+    <string name="largeVal">Large</string>
+    <string name="overall">Overall</string>
 
     <!-- View pager Strings -->
     <string name="cdlRosters">CDL Pro Rosters</string>

@@ -30,4 +30,7 @@
     <string name="addMatch">Añadir Partido</string>
     <string name="updateMatch">Actualizar Partido</string>
     <string name="fontSize">Tamaño de Letra</string>
+    <string name="defaultVal">Defecto</string>
+    <string name="largeVal">Gran</string>
+    <string name="overall">General</string>
 </resources>
