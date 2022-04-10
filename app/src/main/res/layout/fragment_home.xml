@@ -1,182 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:orientation="vertical">
-
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeFragment"
+        android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/home_icon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/home_app_icon"
-            android:src="@mipmap/ic_launcher_round"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
-
-        <TextView
-            android:id="@+id/home_title"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="@string/home_title"
-            android:textSize="32sp" />
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/home_app_icon"
+                android:src="@mipmap/ic_launcher_round"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/home_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:text="@string/home_title"
+                android:textStyle="bold"
+                android:textSize="32sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/home_divier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home_divider"
+            android:src="@drawable/home_divider"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/home_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_desc"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/matches_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_matches"
+            android:textAlignment="center" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/home_createImg"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:contentDescription="@string/home_create_matches"
+                    android:src="@drawable/ic_baseline_add_24" />
+
+                <ImageView
+                    android:id="@+id/home_editImg"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:contentDescription="@string/home_edit_matches"
+                    android:src="@drawable/ic_baseline_edit_24" />
+
+                <ImageView
+                    android:id="@+id/home_deleteImg"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:contentDescription="@string/home_delete_matches"
+                    android:src="@drawable/ic_baseline_delete_24" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/home_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/home_create"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/home_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/home_edit"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/home_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/home_delete"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="16sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/home_table_row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/home_statsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_statsTitle"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/home_divier2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/home_divider"
+            android:src="@drawable/home_divider"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/home_statsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_statsDesc"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/home_eventsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_eventsTitle"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/home_divier3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/home_divider"
+            android:src="@drawable/home_divider"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/event1_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event1"
+            android:textAlignment="center"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/event2_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event2"
+            android:textAlignment="center"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/event3_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event3"
+            android:textSize="16dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/event4_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event4"
+            android:textSize="16dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/calButt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_buttText"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/event5_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event5"
+            android:textSize="16dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/calButt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_buttText"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/event6_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/basic"
+            android:text="@string/home_event6"
+            android:textSize="16dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/calButt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_buttText"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/home_divier"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/home_divider"
-        android:src="@drawable/home_divider"
-        tools:ignore="ImageContrastCheck" />
-
-    <TextView
-        android:id="@+id/home_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:fontFamily="@font/basic"
-        android:text="@string/home_desc"
-        android:textAlignment="center"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/matches_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/basic"
-        android:text="@string/home_matches"
-        android:textAlignment="center" />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/home_createImg"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:contentDescription="@string/home_create_matches"
-                android:src="@drawable/ic_baseline_add_24" />
-
-            <ImageView
-                android:id="@+id/home_editImg"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:contentDescription="@string/home_edit_matches"
-                android:src="@drawable/ic_baseline_edit_24" />
-
-            <ImageView
-                android:id="@+id/home_deleteImg"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:contentDescription="@string/home_delete_matches"
-                android:src="@drawable/ic_baseline_delete_24" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/home_create"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="@string/home_create"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/home_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="@string/home_edit"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/home_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="@string/home_delete"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/home_table_row"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-        </TableRow>
-
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/home_statsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_statsTitle"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/home_divier2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:contentDescription="@string/home_divider"
-        android:src="@drawable/home_divider"
-        tools:ignore="ImageContrastCheck" />
-
-    <TextView
-        android:id="@+id/home_statsDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:fontFamily="@font/basic"
-        android:text="@string/home_statsDesc"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-</LinearLayout>
+</ScrollView>
