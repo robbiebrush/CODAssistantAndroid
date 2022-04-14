@@ -13,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.codassistant.Database.MatchesDatabase;
+import com.example.codassistant.Database.pojos.Match;
 import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.

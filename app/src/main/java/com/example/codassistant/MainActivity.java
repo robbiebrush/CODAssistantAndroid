@@ -35,7 +35,7 @@ import com.example.codassistant.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -68,6 +68,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             font = 0;
         } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
             font = 1;
+        }
+
+        if (sharedPreferences.getString("filter", "overall").equals("overall")) {
+            filter = 0;
+        } else if (sharedPreferences.getString("filter", "overall").equals("hp")) {
+            filter = 1;
+            Log.d("help","made it hp filter");
+        } else if (sharedPreferences.getString("filter", "overall").equals("snd")) {
+            filter = 2;
+        } else if (sharedPreferences.getString("filter", "overall").equals("ctl")) {
+            filter = 3;
         }
 
 
@@ -151,52 +162,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals("lang")) {
-            if (sharedPreferences.getString("lang", "eng").equals("eng")) {
-                setAppLocale("en");
-                Log.d("help", "made it eng");
-            } else if (sharedPreferences.getString("lang", "eng").equals("esp")) {
-                setAppLocale("es");
-                Log.d("help", "made it esp");
-            }
-        }
-
-        if (key.equals("font")) {
-            if (sharedPreferences.getString("font", "default").equals("default")) {
-                font = 0;
-            } else if (sharedPreferences.getString("font", "default").equals("large")) {
-                font = 1;
-            }
-        }
-        if (key.equals("filter")) {
-            if (sharedPreferences.getString("filter", "overall").equals("overall")) {
-                filter = 0;
-            } else if (sharedPreferences.getString("filter", "overall").equals("hp")) {
-                filter = 1;
-                Log.d("help","made it hp filter");
-            } else if (sharedPreferences.getString("filter", "overall").equals("snd")) {
-                filter = 2;
-            } else if (sharedPreferences.getString("filter", "overall").equals("ctl")) {
-                filter = 3;
-            }
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        SharedPreferences pref = this.getPreferences(Context.MODE_PRIVATE);
-        pref.registerOnSharedPreferenceChangeListener(this);
-        super.onStart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        SharedPreferences pref = this.getPreferences(Context.MODE_PRIVATE);
-        pref.unregisterOnSharedPreferenceChangeListener(this);
-        super.onDestroy();
     }
 }

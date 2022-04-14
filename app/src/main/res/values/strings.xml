@@ -25,7 +25,7 @@
     <string name="gav" translatable="false">Gavutu</string>
     <string name="berlin" translatable="false">Berlin</string>
     <string name="hp" translatable="false">Hardpoint</string>
-    <string name="snd" translatable="false">Search and Destroy</string>
+    <string name="snd">Search and Destroy</string>
     <string name="ctl" translatable="false">Control</string>
     <string name="teamPoints">Team\nPoints:</string>
     <string name="oppPoints">Opponent\nPoints:</string>
@@ -37,6 +37,11 @@
     <string name="matchInstructs">Add, edit and delete Ranked Vanguard matches.</string>
     <string name="secs">sec</string>
     <string name="plants">plants</string>
+
+    <string name="winLoss">Win / Loss:</string>
+    <string name="totalElimsDeaths">Total Elims / Deaths:</string>
+    <string name="avElimsDeaths">Average Elims / Deaths:</string>
+    <string name="avObj">Average Objectives:</string>
 
     <!-- Preference Titles -->
     <string name="prefs_header">Preferences</string>
