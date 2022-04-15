@@ -43,9 +43,13 @@
     <string name="avElimsDeaths">Average Elims / Deaths:</string>
     <string name="avObj">Average Objectives:</string>
 
+    <string name="smsButt">SMS</string>
+    <string name="emailButt">Email</string>
+
     <!-- Preference Titles -->
     <string name="prefs_header">Preferences</string>
-    <string name="filter_header">Filter Stats</string>
+    <string name="filter_header">Stats Filter</string>
+    <string name="contactInfo">Contact Info</string>
     <string name="language">Language</string>
     <string name="gamemode">Game Mode</string>
     <string name="fontSize">Font Size</string>

@@ -1,6 +1,9 @@
 package com.example.codassistant;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +12,12 @@ import androidx.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.codassistant.Database.MatchesDatabase;
 import com.example.codassistant.Database.pojos.Match;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -146,6 +151,9 @@ public class StatsFragment extends Fragment {
         TextView averageStatsTitle = view.findViewById(R.id.averageStatsTitle);
         TextView winLossTitle = view.findViewById(R.id.winLossTitle);
         TextView totalStatsTitle = view.findViewById(R.id.totalStatsTitle);
+
+        Button smsButt = view.findViewById(R.id.smsButt);
+        Button emailButt = view.findViewById(R.id.emailButt);
 
         if (MainActivity.font == 0) {
             filterName.setTextSize(getResources().getDimension(R.dimen.title_text) / getResources().getDisplayMetrics().density);
@@ -369,6 +377,85 @@ public class StatsFragment extends Fragment {
             averageStats.setText("0/0");
             objStats.setText("0");
         }
+
+        emailButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + sharedPreferences.getString("email", "")));
+                if (MainActivity.filter == 0) {
+                    intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.overall) + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(seconds) + " " + getResources().getString(R.string.secs) + ", " + oneDec.format(plants) + " " + getResources().getString(R.string.plants) + ", " + oneDec.format(objKills) + " obj elims");
+                } else if (MainActivity.filter == 1) {
+                    intent.putExtra(Intent.EXTRA_TEXT, "Hardpoint" + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(seconds) + " " + getResources().getString(R.string.secs));
+                } else if (MainActivity.filter == 2) {
+                    intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.snd) + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(plants) + " " + getResources().getString(R.string.plants));
+                } else if (MainActivity.filter == 3) {
+                    intent.putExtra(Intent.EXTRA_TEXT, "Control" + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(objKills) + " obj elims");
+                }
+
+                if(intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null){
+                    startActivity(intent);
+                }else{
+                    Snackbar.make(Objects.requireNonNull(getView()), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        smsButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("smsto:" + sharedPreferences.getString("number", "")));
+
+                if (MainActivity.filter == 0) {
+                    intent.putExtra("sms_body", getResources().getString(R.string.overall) + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(seconds) + " " + getResources().getString(R.string.secs) + ", " + oneDec.format(plants) + " " + getResources().getString(R.string.plants) + ", " + oneDec.format(objKills) + " obj elims");
+                } else if (MainActivity.filter == 1) {
+                    intent.putExtra("sms_body", "Hardpoint" + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(seconds) + " " + getResources().getString(R.string.secs));
+                } else if (MainActivity.filter == 2) {
+                    intent.putExtra("sms_body", getResources().getString(R.string.snd) + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(plants) + " " + getResources().getString(R.string.plants));
+                } else if (MainActivity.filter == 3) {
+                    intent.putExtra("sms_body", "Control" + ":\n\n" + getResources().getString(R.string.winLoss) +
+                            "\n" + noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L\n\n" + getResources().getString(R.string.totalElimsDeaths) +
+                            "\n" + noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D\n\n" + getResources().getString(R.string.avElimsDeaths) +
+                            "\n" + noDec.format(avElims) + "/" + noDec.format(avDeaths) + "\n\n" + getResources().getString(R.string.avObj) + "\n" +
+                            oneDec.format(objKills) + " obj elims");
+                }
+
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                }else{
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         return view;
     }

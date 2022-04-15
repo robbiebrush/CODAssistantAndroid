@@ -60,4 +60,8 @@
     <string name="totalElimsDeaths">Total Elims / Muertes:</string>
     <string name="avElimsDeaths">Media Elims / Meurtes:</string>
     <string name="avObj">Media Objetivos:</string>
+    <string name="smsButt">SMS</string>
+    <string name="emailStats">Correo Electrónico</string>
+    <string name="emailButt">Correo Electrónico</string>
+    <string name="contactInfo">Información de Contacto</string>
 </resources>
