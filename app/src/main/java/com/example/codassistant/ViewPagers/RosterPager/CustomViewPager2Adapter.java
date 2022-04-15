@@ -80,8 +80,7 @@ public class CustomViewPager2Adapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0:
-                String title = context.getString(R.string.cdlRosters);
-                return ViewPager2Fragment.newInstance("https://styles.redditmedia.com/t5_3sgon3/styles/communityIcon_m4hjnmn9nuw71.png?width=256&s=eec96e0cb80b1899e6088cea3e31293a424727a2", "\n" + title + "\n", "COD: Vanguard (2022)");
+                return ViewPager2Fragment.newInstance("https://styles.redditmedia.com/t5_3sgon3/styles/communityIcon_m4hjnmn9nuw71.png?width=256&s=eec96e0cb80b1899e6088cea3e31293a424727a2", "\n" + context.getResources().getString(R.string.cdlRosters) + "\n", "COD: Vanguard (2022)");
             case 1:
                 try {
                     return ViewPager2Fragment.newInstance(teamList.get(0).getString("image_url"), "\n" + teamList.get(0).getString("name") + "\n",teamList.get(0).getJSONArray("players").getJSONObject(0).getString("first_name") + " \"" + teamList.get(0).getJSONArray("players").getJSONObject(0).getString("name") + "\" " + teamList.get(0).getJSONArray("players").getJSONObject(0).getString("last_name") + "\n"

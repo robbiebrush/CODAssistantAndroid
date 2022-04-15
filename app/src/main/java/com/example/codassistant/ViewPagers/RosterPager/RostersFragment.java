@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.example.codassistant.R;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link RostersFragment#newInstance} factory method to
@@ -72,12 +74,19 @@ public class RostersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rosters, container, false);
         viewPager2 = view.findViewById(R.id.rostersViewPager);
-        viewPager2.setAdapter(new CustomViewPager2Adapter(getActivity(), getContext()));
+        viewPager2.setAdapter(new CustomViewPager2Adapter(Objects.requireNonNull(getActivity()), getContext()));
         viewPager2.setPageTransformer(new DepthPageTransformer());
         return view;
     }
 
-    public class DepthPageTransformer implements ViewPager2.PageTransformer {
+    @Override
+    public void onStop() {
+        super.onStop();
+        viewPager2.setAdapter(new CustomViewPager2Adapter(Objects.requireNonNull(getActivity()), getContext()));
+        viewPager2.setPageTransformer(new DepthPageTransformer());
+    }
+
+    public static class DepthPageTransformer implements ViewPager2.PageTransformer {
         private static final float MIN_SCALE = 0.75f;
 
         public void transformPage(View view, float position) {
