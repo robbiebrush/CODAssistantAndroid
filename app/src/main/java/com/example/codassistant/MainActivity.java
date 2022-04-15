@@ -125,9 +125,11 @@ public class MainActivity extends AppCompatActivity {
                                              @Nullable Bundle arguments) {
                 if (destination.getId() == R.id.nav_matches) {
                     binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_add_24);
+                    binding.appBarMain.fab.setContentDescription(getResources().getString(R.string.fabDescAdd));
                     binding.appBarMain.fab.show();
                 } else if (destination.getId() == R.id.nav_home){
                     binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_event_24);
+                    binding.appBarMain.fab.setContentDescription(getResources().getString(R.string.fabDescCal));
                     binding.appBarMain.fab.show();
                 } else {
                     binding.appBarMain.fab.hide();

@@ -15,6 +15,9 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title">COD Assistant</string>
     <string name="subtitle">Ranked Stat Tracking | Latest CDL Info</string>
+    <!--App Description Strings-->
+    <string name="fabDescCal">After selecting an event, add it your calendar</string>
+    <string name="fabDescAdd">Add a match to your Vanguard matches</string>
 
     <!--Match/Stats Strings -->
     <string name="map">Map:</string>
@@ -104,4 +107,5 @@
     <string name="home_create_matches">Create Match Icon</string>
     <string name="home_edit_matches">Edit Match Icon</string>
     <string name="home_delete_matches">Delete Match Icon</string>
+    <string name="eventClick">Selects this event</string>
 </resources>
