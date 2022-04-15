@@ -1,8 +1,10 @@
 package com.example.codassistant;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.example.codassistant.Database.pojos.Match;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +43,8 @@ public class StatsFragment extends Fragment {
     double seconds = 0;
     double plants = 0;
     double objKills = 0;
+
+    int openFlag = 0;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -84,6 +89,30 @@ public class StatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
+
+        switch (sharedPreferences.getString("filter", "overall")) {
+            case "overall":
+                MainActivity.filter = 0;
+                break;
+            case "hp":
+                MainActivity.filter = 1;
+                break;
+            case "snd":
+                MainActivity.filter = 2;
+                break;
+            case "ctl":
+                MainActivity.filter = 3;
+                break;
+        }
+
+        if (sharedPreferences.getString("font", "default").equals("default")) {
+            MainActivity.font = 0;
+        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
+            MainActivity.font = 1;
+        }
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
 
@@ -93,15 +122,19 @@ public class StatsFragment extends Fragment {
 
         MatchesDatabase db = new MatchesDatabase(getContext());
         matches = db.getAllMatches();
-        for (Match match : matches) {
-            if (match.getMode().equals(getResources().getString(R.string.hp))) {
-                hpMatches.add(match);
-            } else if (match.getMode().equals("Search and Destroy")) {
-                sndMatches.add(match);
-            } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
-                ctlMatches.add(match);
+
+        if (openFlag == 0) {
+            for (Match match : matches) {
+                if (match.getMode().equals(getResources().getString(R.string.hp))) {
+                    hpMatches.add(match);
+                } else if (match.getMode().equals("Search and Destroy")) {
+                    sndMatches.add(match);
+                } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
+                    ctlMatches.add(match);
+                }
             }
         }
+
 
         TextView filterName = view.findViewById(R.id.filterName);
         TextView winLoss = view.findViewById(R.id.winLoss);
@@ -157,7 +190,7 @@ public class StatsFragment extends Fragment {
                     if (losses == 0) {
                         winLossRatio = wins;
                     } else {
-                        winLossRatio = matches.size() / wins;
+                        winLossRatio = wins / losses;
                     }
 
                     if (match.getMode().equals(getResources().getString(R.string.hp))) {
@@ -193,6 +226,7 @@ public class StatsFragment extends Fragment {
                 totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
                 averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
                 objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs) + "     " + oneDec.format(plants) + " " + getResources().getString(R.string.plants) + "     " + oneDec.format(objKills) + " obj elims");
+                
             } else if (MainActivity.filter == 1) {
                 filterName.setText(getResources().getString(R.string.hp));
 
@@ -214,7 +248,7 @@ public class StatsFragment extends Fragment {
                     if (losses == 0) {
                         winLossRatio = wins;
                     } else {
-                        winLossRatio = hpMatches.size() / wins;
+                        winLossRatio = wins / losses;
                     }
 
                     seconds += match.getObj();
@@ -234,6 +268,7 @@ public class StatsFragment extends Fragment {
                 totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
                 averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
                 objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs));
+
             } else if (MainActivity.filter == 2) {
                 filterName.setText(getResources().getString(R.string.snd));
 
@@ -255,7 +290,7 @@ public class StatsFragment extends Fragment {
                     if (losses == 0) {
                         winLossRatio = wins;
                     } else {
-                        winLossRatio = sndMatches.size() / wins;
+                        winLossRatio = wins / losses;
                     }
 
                     plants += match.getObj();
@@ -296,7 +331,7 @@ public class StatsFragment extends Fragment {
                     if (losses == 0) {
                         winLossRatio = wins;
                     } else {
-                        winLossRatio = ctlMatches.size() / wins;
+                        winLossRatio = wins / losses;
                     }
 
                     objKills += match.getObj();
@@ -325,5 +360,24 @@ public class StatsFragment extends Fragment {
         }
 
         return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        wins = 0;
+        losses = 0;
+        elims = 0;
+        deaths = 0;
+        winLossRatio = 0;
+        elimDeathRatio = 0;
+        avElims = 0;
+        avDeaths = 0;
+        seconds = 0;
+        plants = 0;
+        objKills = 0;
+
+        openFlag = 1;
     }
 }

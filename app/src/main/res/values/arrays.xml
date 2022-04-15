@@ -6,8 +6,8 @@
     </string-array>
 
     <string-array name="langs_values">
-        <item>eng</item>
-        <item>esp</item>
+        <item>en</item>
+        <item>es</item>
     </string-array>
 
     <!-- Font Size Preference -->

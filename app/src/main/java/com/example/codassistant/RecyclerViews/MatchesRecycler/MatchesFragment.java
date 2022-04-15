@@ -1,11 +1,16 @@
 package com.example.codassistant.RecyclerViews.MatchesRecycler;
 
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +23,8 @@ import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,6 +76,14 @@ public class MatchesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
+        if (sharedPreferences.getString("font", "default").equals("default")) {
+            MainActivity.font = 0;
+        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
+            MainActivity.font = 1;
+        }
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_matches, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.matchesRecyclerView);

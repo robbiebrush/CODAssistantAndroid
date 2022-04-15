@@ -1,10 +1,12 @@
 package com.example.codassistant.ViewPagers.RosterPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -17,6 +19,8 @@ import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,14 +83,6 @@ public class ViewPager2Fragment extends Fragment {
         ImageView picView = (ImageView) view.findViewById(R.id.teamPic);
         TextView nameTextView = (TextView) view.findViewById(R.id.teamName);
         TextView rosterTextView = (TextView) view.findViewById(R.id.teamRoster);
-
-        if (MainActivity.font == 0) {
-            nameTextView.setTextSize(getResources().getDimension(R.dimen.subtitle_text) / getResources().getDisplayMetrics().density);
-            rosterTextView.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
-        } else if (MainActivity.font == 1) {
-            nameTextView.setTextSize(getResources().getDimension(R.dimen.subtitle_text_large) / getResources().getDisplayMetrics().density);
-            rosterTextView.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
-        }
 
         ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
 

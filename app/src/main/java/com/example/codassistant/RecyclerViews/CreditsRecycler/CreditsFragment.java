@@ -1,20 +1,28 @@
 package com.example.codassistant.RecyclerViews.CreditsRecycler;
 
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.codassistant.Database.pojos.Credit;
+import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,6 +76,14 @@ public class CreditsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_credits, container, false);
         ArrayList<Credit> credits = new ArrayList<>();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
+
+        if (sharedPreferences.getString("font", "default").equals("default")) {
+            MainActivity.font = 0;
+        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
+            MainActivity.font = 1;
+        }
 
         String creators = getString(R.string.creators);
         String apiData = getString(R.string.apiData);
