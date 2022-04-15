@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/creditsRecyclerView"
+        android:contentDescription="@string/creditsRecyclerDesc"
         android:layout_weight="1">
     </androidx.recyclerview.widget.RecyclerView>
 

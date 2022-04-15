@@ -61,7 +61,18 @@
     <string name="avElimsDeaths">Media Elims / Meurtes:</string>
     <string name="avObj">Media Objetivos:</string>
     <string name="smsButt">SMS</string>
-    <string name="emailStats">Correo Electrónico</string>
     <string name="emailButt">Correo Electrónico</string>
     <string name="contactInfo">Información de Contacto</string>
+    <string name="matchRecyclerDesc">Lista de sus partidos Vanguard introducidos</string>
+    <string name="deleteMatchDesc">Elimina el partido seleccionado de su lista de partidos de Vanguard</string>
+    <string name="editMatchDesc">Abre la pantalla de edición del partido seleccionado de su lista de partidos de Vanguard</string>
+    <string name="mapRadioGroupDesc">Selecciona uno de los cinco mapas competitivos de Vanguard</string>
+    <string name="modeRadioGroupDesc">Selecciona uno de los 3 modos de juego competitivo de Vanguard</string>
+    <string name="inputMatchDesc">Introduzca este partido y sus datos actuales</string>
+    <string name="statsCardDesc">Muestra las estadísticas de Vanguard con el filtro de estadísticas seleccionado en la configuración</string>
+    <string name="smsButtDesc">Envía un SMS con tus estadísticas a quien sea o al número de teléfono establecido en la configuración</string>
+    <string name="emailButtDesc">Envíe sus estadísticas por correo electrónico a quien sea o al correo electrónico establecido en la configuración</string>
+    <string name="pagerDescription">Lista de equipos profesionales de la CDL y sus listas</string>
+    <string name="webClickDesc">Abre el sitio web de los equipos actuales</string>
+    <string name="creditsRecyclerDesc">Lista de referencias de las fuentes</string>
 </resources>

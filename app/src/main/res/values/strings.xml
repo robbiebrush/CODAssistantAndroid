@@ -1,4 +1,5 @@
 <resources>
+    <!--App strings-->
     <string name="app_name">CODAssistant</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -7,7 +8,6 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="action_credits">Credits</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_my_matches">My Matches</string>
     <string name="menu_my_stats">My Stats</string>
@@ -16,7 +16,7 @@
     <string name="title">COD Assistant</string>
     <string name="subtitle">Ranked Stat Tracking | Latest CDL Info</string>
 
-    <!--Match Strings -->
+    <!--Match/Stats Strings -->
     <string name="map">Map:</string>
     <string name="mode">Game\nMode:</string>
     <string name="tuscan" translatable="false">Tuscan</string>
@@ -37,16 +37,24 @@
     <string name="matchInstructs">Add, edit and delete Ranked Vanguard matches.</string>
     <string name="secs">sec</string>
     <string name="plants">plants</string>
-
     <string name="winLoss">Win / Loss:</string>
     <string name="totalElimsDeaths">Total Elims / Deaths:</string>
     <string name="avElimsDeaths">Average Elims / Deaths:</string>
     <string name="avObj">Average Objectives:</string>
-
     <string name="smsButt">SMS</string>
     <string name="emailButt">Email</string>
+    <!--Match/Stats Description Strings-->
+    <string name="matchRecyclerDesc">List of your inputted Vanguard matches</string>
+    <string name="deleteMatchDesc">Deletes the selected match from your Vanguard matches list</string>
+    <string name="editMatchDesc">Opens edit screen for the selected match from your Vanguard matches list</string>
+    <string name="mapRadioGroupDesc">Select one of the five Vanguard competitive maps</string>
+    <string name="modeRadioGroupDesc">Select one of the 3 Vanguard competitive modes</string>
+    <string name="inputMatchDesc">Input this match and its current details</string>
+    <string name="statsCardDesc">Displays Vanguard stats with selected stat filter from settings</string>
+    <string name="smsButtDesc">SMS your stats to whoever or the phone number set in settings</string>
+    <string name="emailButtDesc">Email your stats to whoever or the email set in settings</string>
 
-    <!-- Preference Titles -->
+    <!-- Preference Strings -->
     <string name="prefs_header">Preferences</string>
     <string name="filter_header">Stats Filter</string>
     <string name="contactInfo">Contact Info</string>
@@ -59,24 +67,18 @@
 
     <!-- View pager Strings -->
     <string name="cdlRosters">CDL Pro Rosters</string>
+    <!--View Pager Description Strings-->
+    <string name="pagerDescription">List of CDL pro teams and their rosters</string>
+    <string name="webClickDesc">Opens the current teams website</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title" translatable="false">Your signature</string>
-    <string name="reply_title" translatable="false">Default reply action</string>
-
-    <!-- Credits Strings -->
+    <!-- Credit's Strings -->
     <string name="creators">COD Assistant Creators</string>
     <string name="apiData">CDL Roster API Data</string>
     <string name="codVangImage">COD: Vanguard Image</string>
+    <!--Credit's Description Strings-->
+    <string name="creditsRecyclerDesc">List of source references</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title" translatable="false">Sync email periodically</string>
-    <string name="attachment_title" translatable="false">Download incoming attachments</string>
-    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
-
-    <!-- Home Page -->
+    <!-- Home Page Strings-->
     <string name="home_desc">A mobile Call of Duty assistant application to track ranked statistics and centralize all Call of Duty League information such as team information, event details and more.</string>
     <string name="home_matches">COD Assistant allows you to do all of the following when dealing with matches.</string>
     <string name="home_create">Create\nmatches</string>
@@ -91,17 +93,15 @@
     <string name="home_event4">Ultra Major 3 (June 2 - June 5) - WINNER: TBD</string>
     <string name="home_event5">Subliners Major 4 (July 21 - July 24) - WINNER: TBD</string>
     <string name="home_event6">COD: Vanguard Champs (Aug. 19 - Aug. 22) - WINNER: TBD</string>
-
     <string name="intentInsertEvent4" translatable="false">Ultra Major 3</string>
     <string name="intentInsertEvent5" translatable="false">Subliners Major 4</string>
     <string name="intentInsertEvent6" translatable="false">COD: Vanguard Champs</string>
     <string name="tbd">TBD</string>
-
-    <!-- Home Page Image Content Description -->
+    <string name="home_buttText">Save Event</string>
+    <!-- Home Page Description Strings-->
     <string name="home_app_icon">COD Assistant Application Icon</string>
     <string name="home_divider">Content Divider</string>
     <string name="home_create_matches">Create Match Icon</string>
     <string name="home_edit_matches">Edit Match Icon</string>
     <string name="home_delete_matches">Delete Match Icon</string>
-    <string name="home_buttText">Save Event</string>
 </resources>

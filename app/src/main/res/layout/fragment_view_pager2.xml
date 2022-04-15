@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="right"
+            android:contentDescription="@string/webClickDesc"
             app:srcCompat="@drawable/ic_baseline_insert_link_24"
             android:paddingRight="20dp" />
 
@@ -40,6 +41,14 @@
             android:textAlignment="center"
             android:textSize="@dimen/title_text_large"
             android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/home_divier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home_divider"
+            android:src="@drawable/home_divider"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/teamRoster"

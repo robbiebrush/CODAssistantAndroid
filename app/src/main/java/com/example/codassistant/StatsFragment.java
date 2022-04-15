@@ -94,52 +94,8 @@ public class StatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
-
-        switch (sharedPreferences.getString("filter", "overall")) {
-            case "overall":
-                MainActivity.filter = 0;
-                break;
-            case "hp":
-                MainActivity.filter = 1;
-                break;
-            case "snd":
-                MainActivity.filter = 2;
-                break;
-            case "ctl":
-                MainActivity.filter = 3;
-                break;
-        }
-
-        if (sharedPreferences.getString("font", "default").equals("default")) {
-            MainActivity.font = 0;
-        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
-            MainActivity.font = 1;
-        }
-
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
-
-        DecimalFormat noDec = new DecimalFormat("#");
-        DecimalFormat oneDec = new DecimalFormat("#.#");
-        DecimalFormat twoDec = new DecimalFormat("#.##");
-
-        MatchesDatabase db = new MatchesDatabase(getContext());
-        matches = db.getAllMatches();
-
-        if (openFlag == 0) {
-            for (Match match : matches) {
-                if (match.getMode().equals(getResources().getString(R.string.hp))) {
-                    hpMatches.add(match);
-                } else if (match.getMode().equals("Search and Destroy")) {
-                    sndMatches.add(match);
-                } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
-                    ctlMatches.add(match);
-                }
-            }
-        }
-
 
         TextView filterName = view.findViewById(R.id.filterName);
         TextView winLoss = view.findViewById(R.id.winLoss);
@@ -155,6 +111,29 @@ public class StatsFragment extends Fragment {
         Button smsButt = view.findViewById(R.id.smsButt);
         Button emailButt = view.findViewById(R.id.emailButt);
 
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
+        //sets stat filter
+        switch (sharedPreferences.getString("filter", "overall")) {
+            case "overall":
+                MainActivity.filter = 0;
+                break;
+            case "hp":
+                MainActivity.filter = 1;
+                break;
+            case "snd":
+                MainActivity.filter = 2;
+                break;
+            case "ctl":
+                MainActivity.filter = 3;
+                break;
+        }
+        //sets font variable
+        if (sharedPreferences.getString("font", "default").equals("default")) {
+            MainActivity.font = 0;
+        } else if (sharedPreferences.getString("font" ,"default").equals("large")) {
+            MainActivity.font = 1;
+        }
+        //sets font
         if (MainActivity.font == 0) {
             filterName.setTextSize(getResources().getDimension(R.dimen.title_text) / getResources().getDisplayMetrics().density);
             winLoss.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
@@ -176,206 +155,229 @@ public class StatsFragment extends Fragment {
             winLossTitle.setTextSize(getResources().getDimension(R.dimen.subtitle_text_large) / getResources().getDisplayMetrics().density);
             totalStatsTitle.setTextSize(getResources().getDimension(R.dimen.subtitle_text_large) / getResources().getDisplayMetrics().density);
         }
-        if (matches != null) {
-            if (MainActivity.filter == 0) {
-                filterName.setText(getResources().getString(R.string.overall));
-
-                for (Match match : matches) {
-
-                    elims += match.getElims();
-                    deaths += match.getDeaths();
-                    if (deaths == 0) {
-                        elimDeathRatio = elims;
-                    } else {
-                        elimDeathRatio = elims / deaths;
-                    }
-
-                    if (match.getOutcome().equals("W")) {
-                        wins += 1;
-                    } else {
-                        losses += 1;
-                    }
-                    if (losses == 0) {
-                        winLossRatio = wins;
-                    } else {
-                        winLossRatio = wins / losses;
-                    }
-
-                    if (match.getMode().equals(getResources().getString(R.string.hp))) {
-                        seconds += match.getObj();
-                    } else if (match.getMode().equals(getResources().getString(R.string.snd))) {
-                        plants += match.getObj();
-                    } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
-                        objKills += match.getObj();
-                    }
+        //defines needed formats
+        DecimalFormat noDec = new DecimalFormat("#");
+        DecimalFormat oneDec = new DecimalFormat("#.#");
+        DecimalFormat twoDec = new DecimalFormat("#.##");
+        //gets all matches from db in array list
+        MatchesDatabase db = new MatchesDatabase(getContext());
+        matches = db.getAllMatches();
+        //populates specific game mode array lists if fragment not paused
+        if (openFlag == 0) {
+            for (Match match : matches) {
+                if (match.getMode().equals(getResources().getString(R.string.hp))) {
+                    hpMatches.add(match);
+                } else if (match.getMode().equals("Search and Destroy")) {
+                    sndMatches.add(match);
+                } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
+                    ctlMatches.add(match);
                 }
-                if (seconds != 0) {
-                    seconds = seconds / hpMatches.size();
-                }
-                if (plants != 0) {
-                    plants = plants / sndMatches.size();
-                }
-                if (objKills != 0) {
-                    objKills = objKills / ctlMatches.size();
-                }
-
-                if (elims == 0) {
-                    avElims = 0;
-                    avDeaths = deaths;
-                } else {
-                    avElims = elims / matches.size();
-                    avDeaths = deaths / matches.size();
-                }
-
+            }
+        }
+        //checks filter
+        if (MainActivity.filter == 0) {
+            //set title
+            filterName.setText(getResources().getString(R.string.overall));
+            //loop all matches
+            for (Match match : matches) {
+                //calculates elims / deaths
+                elims += match.getElims();
+                deaths += match.getDeaths();
+                //safeguard for 0s
                 if (deaths == 0) {
-                    avDeaths = 0;
-                    avElims = elims;
+                    elimDeathRatio = elims;
                 } else {
-                    avElims = elims / matches.size();
-                    avDeaths = deaths / matches.size();
+                    elimDeathRatio = elims / deaths;
                 }
-
-                winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
-                totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
-                averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
-                objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs) + "     " + oneDec.format(plants) + " " + getResources().getString(R.string.plants) + "     " + oneDec.format(objKills) + " obj elims");
-                
-            } else if (MainActivity.filter == 1) {
-                filterName.setText(getResources().getString(R.string.hp));
-
-                for (Match match : hpMatches) {
-
-                    elims += match.getElims();
-                    deaths += match.getDeaths();
-                    if (deaths == 0) {
-                        elimDeathRatio = elims;
-                    } else {
-                        elimDeathRatio = elims / deaths;
-                    }
-
-                    if (match.getOutcome().equals("W")) {
-                        wins += 1;
-                    } else {
-                        losses += 1;
-                    }
-                    if (losses == 0) {
-                        winLossRatio = wins;
-                    } else {
-                        winLossRatio = wins / losses;
-                    }
-
+                //calculates wins / losses
+                if (match.getOutcome().equals("W")) {
+                    wins += 1;
+                } else {
+                    losses += 1;
+                }
+                //safeguard for 0s
+                if (losses == 0) {
+                    winLossRatio = wins;
+                } else {
+                    winLossRatio = wins / losses;
+                }
+                //calculates each obj stat
+                if (match.getMode().equals(getResources().getString(R.string.hp))) {
                     seconds += match.getObj();
-                }
-
-                if (seconds != 0) {
-                    seconds = seconds / hpMatches.size();
-                }
-
-                if (deaths == 0) {
-                    avDeaths = 0;
-                    avElims = elims;
-                } else {
-                    avElims = elims / hpMatches.size();
-                    avDeaths = deaths / hpMatches.size();
-                }
-
-                winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
-                totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
-                averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
-                objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs));
-
-            } else if (MainActivity.filter == 2) {
-                filterName.setText(getResources().getString(R.string.snd));
-
-                for (Match match : sndMatches) {
-
-                    elims += match.getElims();
-                    deaths += match.getDeaths();
-                    if (deaths == 0) {
-                        elimDeathRatio = elims;
-                    } else {
-                        elimDeathRatio = elims / deaths;
-                    }
-
-                    if (match.getOutcome().equals("W")) {
-                        wins += 1;
-                    } else {
-                        losses += 1;
-                    }
-                    if (losses == 0) {
-                        winLossRatio = wins;
-                    } else {
-                        winLossRatio = wins / losses;
-                    }
-
+                } else if (match.getMode().equals(getResources().getString(R.string.snd))) {
                     plants += match.getObj();
-                }
-
-                if (plants != 0) {
-                    plants = plants / sndMatches.size();
-                }
-
-                if (deaths == 0) {
-                    avDeaths = 0;
-                    avElims = elims;
-                } else {
-                    avElims = elims / sndMatches.size();
-                    avDeaths = deaths / sndMatches.size();
-                }
-
-                winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
-                totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
-                averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
-                objStats.setText(oneDec.format(plants) + " " + getResources().getString(R.string.plants));
-            } else if (MainActivity.filter == 3) {
-                filterName.setText(getResources().getString(R.string.ctl));
-
-                for (Match match : ctlMatches) {
-
-                    elims += match.getElims();
-                    deaths += match.getDeaths();
-                    if (deaths == 0) {
-                        elimDeathRatio = elims;
-                    } else {
-                        elimDeathRatio = elims / deaths;
-                    }
-
-                    if (match.getOutcome().equals("W")) {
-                        wins += 1;
-                    } else {
-                        losses += 1;
-                    }
-                    if (losses == 0) {
-                        winLossRatio = wins;
-                    } else {
-                        winLossRatio = wins / losses;
-                    }
-
+                } else if (match.getMode().equals(getResources().getString(R.string.ctl))) {
                     objKills += match.getObj();
                 }
-                
-                if (objKills != 0) {
-                    objKills = objKills / ctlMatches.size();
-                }
-
-                if (deaths == 0) {
-                    avDeaths = 0;
-                    avElims = elims;
-                } else {
-                    avElims = elims / ctlMatches.size();
-                    avDeaths = deaths / ctlMatches.size();
-                }
-
-                winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
-                totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
-                averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
-                objStats.setText(oneDec.format(objKills) + " obj elims");
             }
-        } else {
-            winLoss.setText("0/0     0W/L");
-            totalStats.setText("0/0     0K/D");
-            averageStats.setText("0/0");
-            objStats.setText("0");
+            //safeguards for 0s / calculating averages
+            if (seconds != 0) {
+                seconds = seconds / hpMatches.size();
+            }
+            if (plants != 0) {
+                plants = plants / sndMatches.size();
+            }
+            if (objKills != 0) {
+                objKills = objKills / ctlMatches.size();
+            }
+            if (elims == 0) {
+                avElims = 0;
+                avDeaths = deaths;
+            } else {
+                avElims = elims / matches.size();
+                avDeaths = deaths / matches.size();
+            }
+            if (deaths == 0) {
+                avDeaths = 0;
+                avElims = elims;
+            } else {
+                avElims = elims / matches.size();
+                avDeaths = deaths / matches.size();
+            }
+            //sets stats to screen
+            winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
+            totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
+            averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
+            objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs) + "     " + oneDec.format(plants) + " " + getResources().getString(R.string.plants) + "     " + oneDec.format(objKills) + " obj elims");
+        //checks filter
+        } else if (MainActivity.filter == 1) {
+            //sets title name
+            filterName.setText(getResources().getString(R.string.hp));
+            //loop all hardpoint matches
+            for (Match match : hpMatches) {
+                //calculate elims / deaths
+                elims += match.getElims();
+                deaths += match.getDeaths();
+                //safequard for 0s
+                if (deaths == 0) {
+                    elimDeathRatio = elims;
+                } else {
+                    elimDeathRatio = elims / deaths;
+                }
+                //calculates wins / losses
+                if (match.getOutcome().equals("W")) {
+                    wins += 1;
+                } else {
+                    losses += 1;
+                }
+                //safeguard for 0s
+                if (losses == 0) {
+                    winLossRatio = wins;
+                } else {
+                    winLossRatio = wins / losses;
+                }
+                //caclulates obj
+                seconds += match.getObj();
+            }
+            //safeguards for 0s / calculating average
+            if (seconds != 0) {
+                seconds = seconds / hpMatches.size();
+            }
+            if (deaths == 0) {
+                avDeaths = 0;
+                avElims = elims;
+            } else {
+                avElims = elims / hpMatches.size();
+                avDeaths = deaths / hpMatches.size();
+            }
+            //set stats to screen
+            winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
+            totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
+            averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
+            objStats.setText(oneDec.format(seconds) + " " + getResources().getString(R.string.secs));
+        //checks filter
+        } else if (MainActivity.filter == 2) {
+            //sets title
+            filterName.setText(getResources().getString(R.string.snd));
+            //loops all search and destroy matches
+            for (Match match : sndMatches) {
+                //calculates elims / deaths
+                elims += match.getElims();
+                deaths += match.getDeaths();
+                //safeguard for 0s
+                if (deaths == 0) {
+                    elimDeathRatio = elims;
+                } else {
+                    elimDeathRatio = elims / deaths;
+                }
+                //calculates win / loss
+                if (match.getOutcome().equals("W")) {
+                    wins += 1;
+                } else {
+                    losses += 1;
+                }
+                //safeguard for 0s
+                if (losses == 0) {
+                    winLossRatio = wins;
+                } else {
+                    winLossRatio = wins / losses;
+                }
+                //calculates obj
+                plants += match.getObj();
+            }
+            //safeguard for 0s / calculating average
+            if (plants != 0) {
+                plants = plants / sndMatches.size();
+            }
+
+            if (deaths == 0) {
+                avDeaths = 0;
+                avElims = elims;
+            } else {
+                avElims = elims / sndMatches.size();
+                avDeaths = deaths / sndMatches.size();
+            }
+            //set stats to screen
+            winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
+            totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
+            averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
+            objStats.setText(oneDec.format(plants) + " " + getResources().getString(R.string.plants));
+        //checks filter
+        } else if (MainActivity.filter == 3) {
+            //sets title
+            filterName.setText(getResources().getString(R.string.ctl));
+            //loops all control matches
+            for (Match match : ctlMatches) {
+                //calculates elims / deaths
+                elims += match.getElims();
+                deaths += match.getDeaths();
+                //safeguard for 0s
+                if (deaths == 0) {
+                    elimDeathRatio = elims;
+                } else {
+                    elimDeathRatio = elims / deaths;
+                }
+                //calculates wins / losses
+                if (match.getOutcome().equals("W")) {
+                    wins += 1;
+                } else {
+                    losses += 1;
+                }
+                //safeguard for 0s
+                if (losses == 0) {
+                    winLossRatio = wins;
+                } else {
+                    winLossRatio = wins / losses;
+                }
+                //calculates objs
+                objKills += match.getObj();
+            }
+            //safegaurds for 0s / calculates averages
+            if (objKills != 0) {
+                objKills = objKills / ctlMatches.size();
+            }
+            if (deaths == 0) {
+                avDeaths = 0;
+                avElims = elims;
+            } else {
+                avElims = elims / ctlMatches.size();
+                avDeaths = deaths / ctlMatches.size();
+            }
+            //set stats to screen
+            winLoss.setText(noDec.format(wins) + "/" + noDec.format(losses) + "     " + twoDec.format(winLossRatio) + "W/L");
+            totalStats.setText(noDec.format(elims) + "/" + noDec.format(deaths) + "     " + twoDec.format(elimDeathRatio) + "K/D");
+            averageStats.setText(noDec.format(avElims) + "/" + noDec.format(avDeaths));
+            objStats.setText(oneDec.format(objKills) + " obj elims");
         }
 
         emailButt.setOnClickListener(new View.OnClickListener() {
@@ -463,7 +465,7 @@ public class StatsFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-
+        //ensures no stacking of stat calculations when fragment paused, not destroyed
         wins = 0;
         losses = 0;
         elims = 0;
@@ -475,7 +477,7 @@ public class StatsFragment extends Fragment {
         seconds = 0;
         plants = 0;
         objKills = 0;
-
+        //tells fragment that is is open still
         openFlag = 1;
     }
 }

@@ -18,6 +18,7 @@
             app:cardBackgroundColor="@color/matches_color"
             android:orientation="vertical"
             app:cardCornerRadius="15dp"
+            android:contentDescription="@string/statsCardDesc"
             android:layout_gravity="center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -170,11 +171,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/smsButt"
                 android:layout_marginEnd="5dp"
+                android:contentDescription="@string/smsButtDesc"
                 android:layout_gravity="center"/>
             <Button
                 android:id="@+id/emailButt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/emailButtDesc"
                 android:text="@string/emailButt"
                 android:layout_gravity="center"/>
         </LinearLayout>

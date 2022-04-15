@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="end"
+            android:contentDescription="@string/mapRadioGroupDesc"
             android:id="@+id/mapInput">
 
             <RadioButton
@@ -75,6 +76,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="end"
+            android:contentDescription="@string/modeRadioGroupDesc"
             android:id="@+id/modeInput">
 
             <RadioButton
@@ -193,6 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
             android:textSize="@dimen/subtitle_text"
-            android:text="@string/addMatch" />
+            android:text="@string/addMatch"
+            android:contentDescription="@string/inputMatchDesc"/>
     </GridLayout>
 </ScrollView>
