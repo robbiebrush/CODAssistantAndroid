@@ -201,10 +201,15 @@ public class StatsFragment extends Fragment {
                         objKills += match.getObj();
                     }
                 }
-
-                seconds = seconds / hpMatches.size();
-                plants = plants / sndMatches.size();
-                objKills = objKills / ctlMatches.size();
+                if (seconds != 0) {
+                    seconds = seconds / hpMatches.size();
+                }
+                if (plants != 0) {
+                    plants = plants / sndMatches.size();
+                }
+                if (objKills != 0) {
+                    objKills = objKills / ctlMatches.size();
+                }
 
                 if (elims == 0) {
                     avElims = 0;
@@ -254,7 +259,9 @@ public class StatsFragment extends Fragment {
                     seconds += match.getObj();
                 }
 
-                seconds = seconds / hpMatches.size();
+                if (seconds != 0) {
+                    seconds = seconds / hpMatches.size();
+                }
 
                 if (deaths == 0) {
                     avDeaths = 0;
@@ -296,7 +303,9 @@ public class StatsFragment extends Fragment {
                     plants += match.getObj();
                 }
 
-                plants = plants / sndMatches.size();
+                if (plants != 0) {
+                    plants = plants / sndMatches.size();
+                }
 
                 if (deaths == 0) {
                     avDeaths = 0;
@@ -336,8 +345,10 @@ public class StatsFragment extends Fragment {
 
                     objKills += match.getObj();
                 }
-
-                objKills = objKills / ctlMatches.size();
+                
+                if (objKills != 0) {
+                    objKills = objKills / ctlMatches.size();
+                }
 
                 if (deaths == 0) {
                     avDeaths = 0;
