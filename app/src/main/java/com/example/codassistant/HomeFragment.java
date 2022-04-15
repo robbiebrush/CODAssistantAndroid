@@ -29,6 +29,9 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+    public static String titleStr = "";
+    public static int start = 0;
+    public static int end = 0;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -99,10 +102,6 @@ public class HomeFragment extends Fragment {
         TextView event5 = view.findViewById(R.id.event5_info);
         TextView event6 = view.findViewById(R.id.event6_info);
 
-        Button eventButt1 = view.findViewById(R.id.calButt1);
-        Button eventButt2 = view.findViewById(R.id.calButt2);
-        Button eventButt3 = view.findViewById(R.id.calButt3);
-
         if (MainActivity.font == 0) {
             homeTitle.setTextSize(getResources().getDimension(R.dimen.title_text) / getResources().getDisplayMetrics().density);
             homeDesc.setTextSize(getResources().getDimension(R.dimen.body_text) / getResources().getDisplayMetrics().density);
@@ -137,51 +136,63 @@ public class HomeFragment extends Fragment {
             event6.setTextSize(getResources().getDimension(R.dimen.body_text_large) / getResources().getDisplayMetrics().density);
         }
 
-        eventButt1.setOnClickListener(new View.OnClickListener() {
+        event4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI)
-                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent4))
-                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1654131600)
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1654520400);
-                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+                event6.setTextColor(getResources().getColor(R.color.matches_color));
+                event6.setBackgroundColor(getResources().getColor(R.color.white));
+                event5.setTextColor(getResources().getColor(R.color.matches_color));
+                event5.setBackgroundColor(getResources().getColor(R.color.white));
+                event4.setTextColor(getResources().getColor(R.color.white));
+                event4.setBackgroundColor(getResources().getColor(R.color.matches_color));
+
+                titleStr = getResources().getString(R.string.home_event4);
+                start = 1654142400;
+                end = 1654488000;
             }
         });
 
-        eventButt2.setOnClickListener(new View.OnClickListener() {
+        event5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI)
-                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent5))
-                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1658365200)
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1658710800);
-                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+                event4.setTextColor(getResources().getColor(R.color.matches_color));
+                event4.setBackgroundColor(getResources().getColor(R.color.white));
+                event6.setTextColor(getResources().getColor(R.color.matches_color));
+                event6.setBackgroundColor(getResources().getColor(R.color.white));
+                event5.setTextColor(getResources().getColor(R.color.white));
+                event5.setBackgroundColor(getResources().getColor(R.color.matches_color));
+
+                titleStr = getResources().getString(R.string.home_event5);
+                start = 1658376000;
+                end = 1658721600;
             }
         });
 
-        eventButt3.setOnClickListener(new View.OnClickListener() {
+        event6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI)
-                        .putExtra(CalendarContract.Events.TITLE, getContext().getResources().getString(R.string.intentInsertEvent6))
-                        .putExtra(CalendarContract.Events.EVENT_LOCATION, getContext().getResources().getString(R.string.tbd))
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 1660870800)
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 1661216400);
-                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+                event5.setTextColor(getResources().getColor(R.color.matches_color));
+                event5.setBackgroundColor(getResources().getColor(R.color.white));
+                event4.setTextColor(getResources().getColor(R.color.matches_color));
+                event4.setBackgroundColor(getResources().getColor(R.color.white));
+                event6.setTextColor(getResources().getColor(R.color.white));
+                event6.setBackgroundColor(getResources().getColor(R.color.matches_color));
+
+                titleStr = getResources().getString(R.string.home_event6);
+                start = 1660881600;
+                end = 1661227200;
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        titleStr = "";
+        start = 0;
+        end = 0;
     }
 }

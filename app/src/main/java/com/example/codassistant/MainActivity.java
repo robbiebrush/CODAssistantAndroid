@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
@@ -86,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 .setOpenableLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-
-        binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_add_24);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +96,22 @@ public class MainActivity extends AppCompatActivity {
                     extra.putInt(CreateUpdateFragment.ACTION_TYPE,
                             CreateUpdateFragment.CREATE);
                     navController.navigate(R.id.nav_create_update, extra);
+                } else if (currentFragment.getId() == R.id.nav_home) {
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.Events.TITLE, HomeFragment.titleStr)
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, getApplicationContext().getResources().getString(R.string.tbd))
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, HomeFragment.start)
+                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, HomeFragment.end);
+                    if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
+                        if (HomeFragment.start == 0 || HomeFragment.end == 0 || HomeFragment.titleStr.equals("")) {
+                            Snackbar.make(view, "Select an event", Snackbar.LENGTH_SHORT).show();
+                        } else {
+                            startActivity(intent);
+                        }
+                    } else{
+                        Snackbar.make(view, "No app installed", Snackbar.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -109,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
                                              @NonNull NavDestination destination,
                                              @Nullable Bundle arguments) {
                 if (destination.getId() == R.id.nav_matches) {
+                    binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_add_24);
+                    binding.appBarMain.fab.show();
+                } else if (destination.getId() == R.id.nav_home){
+                    binding.appBarMain.fab.setImageResource(R.drawable.ic_baseline_event_24);
                     binding.appBarMain.fab.show();
                 } else {
                     binding.appBarMain.fab.hide();

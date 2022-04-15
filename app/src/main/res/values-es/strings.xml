@@ -36,12 +36,12 @@
 
     <string name="home_statsTitle">Estadísticas</string>
     <string name="home_eventsTitle">Eventos</string>
-    <string name="home_event1">Kickoff Classic (Jan. 31- Feb. 2) - GANADOR: Toronto Ultra</string>
-    <string name="home_event2">OpTic Major 1 (Mar. 6- Mar. 6) - GANADOR: OpTic Texas</string>
-    <string name="home_event3">RØKKR Major 2 (Mar. 31- April 3) - GANADOR: Los Angeles Guerillas</string>
-    <string name="home_event4">Ultra Major 3 (June 2 - June 5) - GANADOR: Por Determinar</string>
-    <string name="home_event5">Subliners Major 4 (July 21 - July 24) - GANADOR: Por Determinar</string>
-    <string name="home_event6">COD: Vanguard Champs (Aug. 19 - Aug. 22) - GANADOR: Por Determinar</string>
+    <string name="home_event1">Kickoff Classic (Jan. 31- Feb. 2) -\nGANADOR: Toronto Ultra</string>
+    <string name="home_event2">OpTic Major 1 (Mar. 6- Mar. 6) -\nGANADOR: OpTic Texas</string>
+    <string name="home_event3">RØKKR Major 2 (Mar. 31- April 3) -\nGANADOR: Los Angeles Guerillas</string>
+    <string name="home_event4">Ultra Major 3 (June 2 - June 5) -\nGANADOR: Por Determinar</string>
+    <string name="home_event5">Subliners Major 4 (July 21 - July 24) -\nGANADOR: Por Determinar</string>
+    <string name="home_event6">COD: Vanguard Champs (Aug. 19 - Aug. 22) -\nGANADOR: Por Determinar</string>
     <string name="tbd">Por Determinar</string>
     <string name="home_create">Crear\npartido</string>
     <string name="home_edit">Editar\npartido</string>
