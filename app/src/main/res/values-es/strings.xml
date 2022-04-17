@@ -52,7 +52,7 @@
     <string name="home_edit_matches">Icono de Editar Partido</string>
     <string name="home_delete_matches">Icono de Eliminar Partido</string>
     <string name="home_buttText">" Guardar Evento"</string>
-    <string name="home_statsDesc">Revisa todas las partidas y muestra las estadísticas de las mismas, como la media de muertes, las plantas, los mapas comunes, los modos de juego comunes y mucho más.</string>
+    <string name="home_statsDesc">Recorre todas las partidas y muestra las estadísticas de las mismas, como las eliminaciones totales y medias, las muertes y los objetivos.</string>
     <string name="home_matches">El Asistente COD le permite hacer todo lo siguiente cuando se trata de partidos.</string>
     <string name="home_desc">Una aplicación móvil del asistente de Call of Duty para seguir las estadísticas de clasificación y centralizar toda la información de la liga de Call of Duty, como la información del equipo, los detalles del evento y mucho más.</string>
     <string name="snd">Buscar y Destruir</string>
@@ -78,4 +78,5 @@
     <string name="fabDescCal">Después de seleccionar un evento, añádelo a tu calendario</string>
     <string name="fabDescAdd">Añade un partido a tus partidos de Vanguard</string>
     <string name="eventClick">Selecciona este evento</string>
+    <string name="home_matchesTitle">Partido</string>
 </resources>

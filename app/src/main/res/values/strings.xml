@@ -88,7 +88,7 @@
     <string name="home_edit">Edit\nmatches</string>
     <string name="home_delete">Delete\nmatches</string>
     <string name="home_statsTitle">Statistics</string>
-    <string name="home_statsDesc">Go through all matches and show match statistics such as average kills, deaths, plants, common maps, common game modes and more.</string>
+    <string name="home_statsDesc">Go through all matches and show match statistics such as total and average eliminations, deaths, and objectives.</string>
     <string name="home_eventsTitle">Events</string>
     <string name="home_event1">Kickoff Classic (Jan. 31- Feb. 2) -\nWINNER: Toronto Ultra</string>
     <string name="home_event2">OpTic Major 1 (Mar. 6- Mar. 6) -\nWINNER: OpTic Texas</string>
@@ -101,6 +101,7 @@
     <string name="intentInsertEvent6" translatable="false">COD: Vanguard Champs</string>
     <string name="tbd">TBD</string>
     <string name="home_buttText">Save Event</string>
+    <string name="home_matchesTitle">Matches</string>
     <!-- Home Page Description Strings-->
     <string name="home_app_icon">COD Assistant Application Icon</string>
     <string name="home_divider">Content Divider</string>
