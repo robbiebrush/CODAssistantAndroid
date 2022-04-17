@@ -1,4 +1,4 @@
-package com.example.codassistant.Database;
+package com.example.codassistant.Database.databases;
 
 import android.content.ContentValues;
 import android.content.Context;

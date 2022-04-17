@@ -23,6 +23,15 @@
             android:paddingBottom="10dp"
             android:text="@string/matchInstructs" />
 
+        <ImageView
+            android:id="@+id/home_divier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home_divider"
+            android:src="@drawable/home_divider"
+            tools:ignore="ImageContrastCheck"
+            android:paddingBottom="10dp"/>
+
         <!--recycler view for ranked matches-->
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

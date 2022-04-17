@@ -3,9 +3,6 @@ package com.example.codassistant.RecyclerViews.MatchesRecycler;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,17 +12,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.codassistant.Database.CreateUpdateFragment;
-import com.example.codassistant.Database.MatchesDatabase;
+import com.example.codassistant.Database.databases.MatchesDatabase;
 import com.example.codassistant.Database.pojos.Match;
 import com.example.codassistant.MainActivity;
 import com.example.codassistant.R;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class CustomRecyclerViewAdapter2 extends RecyclerView.Adapter<CustomRecyclerViewAdapter2.CustomViewHolder>{
     private ArrayList<Match> matches;
@@ -58,7 +53,7 @@ public class CustomRecyclerViewAdapter2 extends RecyclerView.Adapter<CustomRecyc
 
         String plants = context.getString(R.string.plants);
         String sec = context.getString(R.string.secs);
-        if (match.getMode(). equals("Search and Destroy")) {
+        if (match.getMode().equals("Search and Destroy")) {
             holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " " + plants);
         } else if (match.getMode().equals("Hardpoint")) {
             holder.stats.setText(match.getElims() + "/" + match.getDeaths() + "          " + match.getKdRatio() + "KD          " + match.getObj() + " " + sec);

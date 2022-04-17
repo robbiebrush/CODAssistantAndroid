@@ -2,6 +2,8 @@ package com.example.codassistant.ViewPagers.RosterPager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -20,6 +22,8 @@ import com.example.codassistant.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -36,7 +40,8 @@ public class ViewPager2Fragment extends Fragment {
     private static final String ARG_ROSTER = "roster";
 
     // TODO: Rename and change types of parameters
-    private String pic;
+    private Bitmap picB;
+    private byte[] pic;
     private String name;
     private String roster;
 
@@ -50,15 +55,19 @@ public class ViewPager2Fragment extends Fragment {
     /**
      * New instance view page fragment.
      *
-     * @param pic  the pic
      * @param name the name
      * @return the view page fragment
      */
 // TODO: Rename and change types and number of parameters
-    public static ViewPager2Fragment newInstance(String pic, String name, String roster) {
+    public static ViewPager2Fragment newInstance(Bitmap picIn, String name, String roster) {
         ViewPager2Fragment fragment = new ViewPager2Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PIC, pic);
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        picIn.compress(Bitmap.CompressFormat.PNG, 90, stream);
+        byte[] picBytes = stream.toByteArray();
+
+        args.putByteArray(ARG_PIC, picBytes);
         args.putString(ARG_NAME, name);
         args.putString(ARG_ROSTER, roster);
         fragment.setArguments(args);
@@ -69,7 +78,10 @@ public class ViewPager2Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            pic = getArguments().getString(ARG_PIC);
+            byte[] picIn = getArguments().getByteArray(ARG_PIC);
+            Bitmap image = BitmapFactory.decodeByteArray(picIn, 0, picIn.length);
+
+            picB = image;
             name = getArguments().getString(ARG_NAME);
             roster = getArguments().getString(ARG_ROSTER);
         }
@@ -86,7 +98,11 @@ public class ViewPager2Fragment extends Fragment {
 
         ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
 
-        Picasso.get().load(pic).into(picView);
+        if (picB == null) {
+            picView.setImageResource(R.drawable.ic_baseline_error_outline_24);
+        } else {
+            picView.setImageBitmap(picB);
+        }
         nameTextView.setText(name);
         rosterTextView.setText(roster);
 
@@ -146,5 +162,9 @@ public class ViewPager2Fragment extends Fragment {
         });
 
         return view;
+    }
+
+    public static Bitmap convertImageBack(byte[] logo) throws IOException {
+        return BitmapFactory.decodeByteArray(logo,0, logo.length);
     }
 }

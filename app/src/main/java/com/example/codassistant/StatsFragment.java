@@ -1,6 +1,5 @@
 package com.example.codassistant;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -15,13 +14,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.codassistant.Database.MatchesDatabase;
+import com.example.codassistant.Database.databases.MatchesDatabase;
 import com.example.codassistant.Database.pojos.Match;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Objects;
 
 /**

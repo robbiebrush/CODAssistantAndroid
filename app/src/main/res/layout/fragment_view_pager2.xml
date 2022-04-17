@@ -48,7 +48,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/home_divider"
             android:src="@drawable/home_divider"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            android:paddingBottom="30dp"/>
 
         <TextView
             android:id="@+id/teamRoster"

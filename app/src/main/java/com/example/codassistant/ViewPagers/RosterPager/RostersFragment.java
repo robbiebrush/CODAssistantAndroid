@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.codassistant.Database.databases.RostersDatabase;
 import com.example.codassistant.R;
 
 import java.util.Objects;
@@ -74,7 +75,9 @@ public class RostersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rosters, container, false);
         viewPager2 = view.findViewById(R.id.rostersViewPager);
-        viewPager2.setAdapter(new CustomViewPager2Adapter(Objects.requireNonNull(getActivity()), getContext()));
+
+        RostersDatabase db = new RostersDatabase(getContext());
+        viewPager2.setAdapter(new CustomViewPager2Adapter(getActivity(), getContext(), db.getAllRosters()));
         viewPager2.setPageTransformer(new DepthPageTransformer());
         return view;
     }
@@ -82,7 +85,8 @@ public class RostersFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        viewPager2.setAdapter(new CustomViewPager2Adapter(Objects.requireNonNull(getActivity()), getContext()));
+        RostersDatabase db = new RostersDatabase(getContext());
+        viewPager2.setAdapter(new CustomViewPager2Adapter(getActivity(), getContext(), db.getAllRosters()));
         viewPager2.setPageTransformer(new DepthPageTransformer());
     }
 
