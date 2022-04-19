@@ -39,6 +39,7 @@ public class ViewPager2Fragment extends Fragment {
     private String pic;
     private String name;
     private String roster;
+    /*Bitmap picB;*/
 
     /**
      * Instantiates a new View page fragment.
@@ -65,10 +66,33 @@ public class ViewPager2Fragment extends Fragment {
         return fragment;
     }
 
+    /*
+    public static ViewPager2Fragment newInstance(Bitmap picIn, String name, String roster) {
+        ViewPager2Fragment fragment = new ViewPager2Fragment();
+        Bundle args = new Bundle();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        picIn.compress(Bitmap.CompressFormat.PNG, 90, stream);
+        byte[] picBytes = stream.toByteArray();
+
+        args.putByteArray(ARG_PIC, picBytes);
+        args.putString(ARG_NAME, name);
+        args.putString(ARG_ROSTER, roster);
+        fragment.setArguments(args);
+        return fragment;
+    }
+     */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            /*
+            byte[] picIn = getArguments().getByteArray(ARG_PIC);
+            Bitmap image = BitmapFactory.decodeByteArray(picIn, 0, picIn.length);
+
+            picB = image;
+             */
             pic = getArguments().getString(ARG_PIC);
             name = getArguments().getString(ARG_NAME);
             roster = getArguments().getString(ARG_ROSTER);
@@ -85,7 +109,13 @@ public class ViewPager2Fragment extends Fragment {
         TextView rosterTextView = (TextView) view.findViewById(R.id.teamRoster);
 
         ImageView urlView = (ImageView) view.findViewById(R.id.webURL);
-
+        /*
+        if (picB == null) {
+            picView.setImageResource(R.drawable.ic_baseline_error_outline_24);
+        } else {
+            picView.setImageBitmap(picB);
+        }
+         */
         Picasso.get().load(pic).into(picView);
         nameTextView.setText(name);
         rosterTextView.setText(roster);
@@ -147,4 +177,9 @@ public class ViewPager2Fragment extends Fragment {
 
         return view;
     }
+    /*
+    public static Bitmap convertImageBack(byte[] logo) throws IOException {
+        return BitmapFactory.decodeByteArray(logo,0, logo.length);
+    }
+     */
 }
