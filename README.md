@@ -5,6 +5,10 @@ Starting Guide: The initial landing screen will highlight the different competit
 
 Prerequisites: An android device, and an internet connection for the CDL rosters
 
+Screesnhots: https://github.com/robbiebrush/CODAssistant/issues/19
+
+Database Schemas: https://github.com/robbiebrush/CODAssistant/issues/18 (Roster classes in caching branch)
+
 Author: Robbie Brush
 
 License: 2022 RBrush
