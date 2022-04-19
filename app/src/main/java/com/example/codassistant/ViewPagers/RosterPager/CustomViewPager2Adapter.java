@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class CustomViewPager2Adapter extends FragmentStateAdapter {
     private ArrayList<JSONObject> teamList;
     private Context context;
-    private long lastPulled;
     String url =
             "https://api.pandascore.co/codmw/teams?token=mvWM5Bc17pu66vR9ecg3q5ZdzX0WG6kallqmeaXbciBD-4DJ_bU";
     /**
@@ -39,8 +38,7 @@ public class CustomViewPager2Adapter extends FragmentStateAdapter {
 
     @NonNull
     public Fragment createFragment(int position) {
-        if(System.currentTimeMillis() - lastPulled > 7889400000L) {//3 months
-            lastPulled = System.currentTimeMillis();
+        if(System.currentTimeMillis() - 0 > 7889400000L) {//3 months
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONArray>() {
                         @Override
